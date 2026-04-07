@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diseñamos Nuestro Futuro · Las Jaras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Arsenal:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── Reset & variables ──────────────────────────────────────────── */
+    .lj-reforma-wrapper *, .lj-reforma-wrapper *::before, .lj-reforma-wrapper *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde:   #7F9472;
+      --teal:    #7A9F9B;
+      --ocre:    #D0A683;
+      --menta:   #D2D6C2;
+      --neutro:  #636260;
+      --gris:    #EDE8E3;
+      --gris-suave: #F8F5F0;
+      --blanco:  #FFFFFF;
+      --oscuro:  #4A5E3A;
+      --negro:   #1a1a1a;
+      --font-title: 'Inter', sans-serif;
+      --font-body:  'Arsenal', serif;
+      --radius:  50px;
+    }
+
+    
+
+    .lj-reforma-wrapper {
+      font-family: var(--font-body);
+      color: var(--neutro);
+      background: var(--blanco);
+      font-size: 17px;
+      line-height: 1.7;
+      transition: padding 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    /* ── Nav ───────────────────────────────────────────────────────── */
+    #lj-nav {
+      position: fixed;
+      z-index: 500;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border: none;
+      pointer-events: none; /* Allow clicks through empty space */
+      transition: all 0.4s ease;
+    }
+
+    .nav-logo {
+      font-family: var(--font-title);
+      font-weight: 600;
+      color: var(--verde);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      text-decoration: none;
+      pointer-events: auto;
+    }
+    .nav-logo span { 
+      display: block;
+      font-size: 0.75rem; 
+      color: var(--neutro); 
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      pointer-events: auto;
+    }
+    .nav-links .lj-reforma-wrapper a {
+      text-decoration: none;
+      font-family: var(--font-title);
+      font-size: 0.85rem;
+      color: var(--neutro);
+      opacity: 0.4; /* Dimmed inactive state */
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .nav-links a:hover, .nav-links a.active { 
+      color: var(--verde); 
+      opacity: 1; 
+      font-weight: 600;
+      transform: translateX(8px);
+    }
+
+    .nav-ct.lj-reforma-wrapper a {
+      margin-top: 2rem;
+      display: inline-block;
+      pointer-events: auto;
+      background: var(--verde);
+      color: var(--blanco) !important;
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--radius);
+      font-family: var(--font-title);
+      font-size: 0.75rem;
+      font-weight: 600 !important;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 10px 30px rgba(74, 94, 58, 0.2);
+      opacity: 1 !important; /* Never dimmed */
+    }
+    .nav-cta:hover {
+      background: var(--oscuro);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(46, 59, 39, 0.3);
+    }
+
+    /* ── Secciones generales ───────────────────────────────────────── */
+    .lj-reforma-wrapper section { padding: 6rem 0; }
+
+    .lj-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-label {
+      font-family: var(--font-title);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ocre);
+      margin-bottom: 0.75rem;
+    }
+
+    h2.section-title {
+      font-family: var(--font-title);
+      font-weight: 300;
+      font-size: 2.4rem;
+      color: var(--negro);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    h3.subsection-title {
+      font-family: var(--font-title);
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: var(--verde);
+      margin-bottom: 0.75rem;
+    }
+
+    .lj-btn {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      border-radius: var(--radius);
+      font-family: var(--font-title);
+      font-size: 0.95rem;
+      font-weight: 400;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s;
+      letter-spacing: 0.02em;
+    }
+    .lj-btn-primary { background: var(--verde); color: var(--blanco); }
+    .lj-btn-primary:hover { background: var(--oscuro); }
+    .lj-btn-secondary { background: var(--ocre); color: var(--blanco); }
+    .lj-btn-secondary:hover { background: #b88b69; }
+    .lj-btn-outline { background: transparent; color: var(--blanco); border: 2px solid var(--blanco); }
+    .lj-btn-outline:hover { background: var(--blanco); color: var(--oscuro); }
+
+    /* ── Placeholder imágenes ──────────────────────────────────────── */
+    .img-placeholder {
+      background: var(--gris);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--neutro);
+      font-family: var(--font-title);
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      gap: 0.5rem;
+      padding: 2rem;
+    }
+    .img-placeholder .icon { font-size: 2rem; opacity: 0.5; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       01 · HERO
+    ═══════════════════════════════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, #e8ede3 0%, #d2d6c2 40%, #c5cdb8 100%);
+    }
+
+    /* decorative circles */
+    .hero-bg::before, .hero-bg::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.35;
+    }
+    .hero-bg::before {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--verde), transparent 70%);
+      top: -100px; right: -100px;
+    }
+    .hero-bg::after {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, var(--ocre), transparent 70%);
+      bottom: -80px; left: -60px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      padding: 2rem;
+      margin-top: 0;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-title);
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--verde);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-title);
+      font-weight: 300;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      color: var(--negro);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--neutro);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .hero-tag {
+      font-family: var(--font-title);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--neutro);
+      opacity: 0.7;
+      margin-top: 3rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       02 · QUÉ ES EL PROYECTO
+    ═══════════════════════════════════════════════════════════════ */
+    #proyecto { background: var(--blanco); }
+
+    .proyecto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .proyecto-texto p { margin-bottom: 1.2rem; }
+
+    .cifras-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+
+    .cifra-card {
+      padding: 2rem 1rem;
+      text-align: center;
+      color: var(--blanco);
+    }
+    .cifra-card:nth-child(1) { background: var(--verde); }
+    .cifra-card:nth-child(2) { background: var(--teal); }
+    .cifra-card:nth-child(3) { background: var(--ocre); }
+    .cifra-card:nth-child(4) { background: var(--verde); }
+    .cifra-card:nth-child(5) { background: var(--teal); }
+
+    .cifra-num {
+      font-family: var(--font-title);
+      font-size: 2.4rem;
+      font-weight: 600;
+      display: block;
+    }
+    .cifra-label { font-size: 0.82rem; opacity: 0.9; line-height: 1.3; }
+
+    .cita-block {
+      background: var(--gris-suave);
+      border-left: 4px solid var(--verde);
+      padding: 2rem 2.5rem;
+      border-radius: 0 12px 12px 0;
+      margin-top: 2rem;
+    }
+    .cita-text {
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--neutro);
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+    }
+    .cita-author {
+      font-family: var(--font-title);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--verde);
+      letter-spacing: 0.04em;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       03 · POR QUÉ ESTE FUTURO
+    ═══════════════════════════════════════════════════════════════ */
+    #razones { background: var(--gris-suave); }
+
+    .razones-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .razon-card {
+      background: var(--blanco);
+      border-radius: 16px;
+      padding: 2rem;
+      border-top: 4px solid var(--verde);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .razon-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    .razon-card:nth-child(2) { border-top-color: var(--teal); }
+    .razon-card:nth-child(3) { border-top-color: var(--ocre); }
+    .razon-card:nth-child(4) { border-top-color: var(--menta); }
+    .razon-card:nth-child(5) { border-top-color: var(--ocre); }
+
+    .razon-icon { font-size: 2rem; margin-bottom: 1rem; }
+
+    .razon-card h3 {
+      font-family: var(--font-title);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--negro);
+      margin-bottom: 0.75rem;
+    }
+
+    .razon-list { list-style: none; }
+    .razon-list li {
+      padding: 0.25rem 0;
+      font-size: 0.92rem;
+      color: var(--neutro);
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .razon-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--verde);
+      font-size: 0.85rem;
+    }
+
+    .normativa-banner {
+      background: var(--verde);
+      color: var(--blanco);
+      border-radius: 16px;
+      padding: 2rem 2.5rem;
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .normativa-banner .icon { font-size: 2.5rem; flex-shrink: 0; }
+    .normativa-banner p { font-size: 0.95rem; line-height: 1.6; }
+    .normativa-banner strong { font-family: var(--font-title); font-weight: 600; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       04 · FASES DE LA REFORMA
+    ═══════════════════════════════════════════════════════════════ */
+    #fases { background: var(--blanco); }
+
+    .fases-timeline {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .fase-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+
+    .fase-year {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--blanco);
+      padding: 1.5rem 1rem;
+      gap: 0.4rem;
+    }
+    .fase-year .year-num {
+      font-family: var(--font-title);
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    .fase-badge {
+      background: rgba(255,255,255,0.25);
+      font-family: var(--font-title);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+
+    .fase-content {
+      background: var(--gris-suave);
+      padding: 1.75rem 2rem;
+    }
+    .fase-content h3 {
+      font-family: var(--font-title);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .fase-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .fase-item {
+      font-family: var(--font-title);
+      font-size: 0.8rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      background: var(--blanco);
+      border: 1px solid var(--menta);
+      color: var(--neutro);
+    }
+
+    /* Financiación */
+    .financiacion-section {
+      margin-top: 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+
+    .termometro-wrap h3 {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--negro);
+      margin-bottom: 0.5rem;
+    }
+    .termometro-wrap .objetivo { color: var(--neutro); font-size: 0.9rem; margin-bottom: 1.25rem; }
+
+    .barra-container {
+      background: var(--gris);
+      border-radius: 50px;
+      height: 24px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+    .barra-fill {
+      height: 100%;
+      border-radius: 50px;
+      background: linear-gradient(90deg, var(--verde), var(--teal));
+      width: 0%;
+      transition: width 1.5s cubic-bezier(.25,.8,.25,1);
+    }
+    .barra-labels {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-title);
+      font-size: 0.8rem;
+      color: var(--neutro);
+      margin-top: 0.3rem;
+    }
+    .barra-labels .conseguido { color: var(--verde); font-weight: 600; }
+
+    .desglose-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .desglose-item {
+      background: var(--gris-suave);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .desglose-pct {
+      font-family: var(--font-title);
+      font-size: 1.8rem;
+      font-weight: 300;
+      display: block;
+    }
+    .desglose-label { font-size: 0.82rem; color: var(--neutro); line-height: 1.3; margin-top: 0.25rem; }
+
+    .donantes-section { margin-top: 4rem; }
+    .donantes-section h3 {
+      font-family: var(--font-title);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ocre);
+      margin-bottom: 1.5rem;
+    }
+    .donantes-grid {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .donante-chip {
+      background: var(--gris-suave);
+      border: 1px solid var(--menta);
+      border-radius: 12px;
+      padding: 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .donante-chip .nombre {
+      font-family: var(--font-title);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--verde);
+    }
+    .donante-chip .rol { font-size: 0.8rem; color: var(--neutro); }
+
+    .donante-placeholder {
+      border: 2px dashed var(--menta);
+      border-radius: 12px;
+      padding: 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--neutro);
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       05 · GALERÍA
+    ═══════════════════════════════════════════════════════════════ */
+    #galeri.lj-reforma-wrapper a { background: var(--gris-suave); }
+
+    .galeria-grid-renders {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .galeria-grid-fotos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .galeria-item {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .galeria-placeholder {
+      aspect-ratio: 4/3;
+      background: var(--gris);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--neutro);
+      gap: 0.5rem;
+      font-family: var(--font-title);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .galeria-placeholder .icon { font-size: 2rem; opacity: 0.4; }
+
+    .galeria-foto-placeholder {
+      aspect-ratio: 3/4;
+      background: var(--menta);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--neutro);
+      gap: 0.5rem;
+      font-family: var(--font-title);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .galeria-foto-placeholder .icon { font-size: 2rem; opacity: 0.4; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       06 · CÓMO COLABORAR
+    ═══════════════════════════════════════════════════════════════ */
+    #colaborar { background: var(--blanco); }
+
+    .colaborar-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .colaborar-card {
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid var(--gris);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .colaborar-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    .colaborar-card h3 {
+      font-family: var(--font-title);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .colaborar-card:nth-child(1) h3 { color: var(--verde); }
+    .colaborar-card:nth-child(2) h3 { color: var(--teal); }
+    .colaborar-card:nth-child(3) h3 { color: var(--ocre); }
+    .colaborar-card:nth-child(4) h3 { color: var(--verde); }
+
+    .colaborar-card ul { list-style: none; }
+    .colaborar-card ul li {
+      padding: 0.3rem 0 0.3rem 1.2rem;
+      position: relative;
+      font-size: 0.92rem;
+    }
+    .colaborar-card ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--ocre);
+    }
+
+    .fiscal-banner {
+      background: linear-gradient(135deg, #fdf3ea, #fceadb);
+      border: 1px solid var(--ocre);
+      border-radius: 16px;
+      padding: 2rem 2.5rem;
+      margin-top: 2.5rem;
+    }
+    .fiscal-banner h3 {
+      font-family: var(--font-title);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ocre);
+      margin-bottom: 0.75rem;
+    }
+    .fiscal-banner p { font-size: 0.95rem; line-height: 1.7; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       07 · ACCIONES DE CAPTACIÓN
+    ═══════════════════════════════════════════════════════════════ */
+    #acciones { background: var(--gris-suave); }
+
+    .acciones-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .accion-card {
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      color: var(--blanco);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .accion-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.15); }
+
+    .accion-card:nth-child(1) { background: var(--verde); }
+    .accion-card:nth-child(2) { background: var(--teal); }
+    .accion-card:nth-child(3) { background: var(--ocre); }
+    .accion-card:nth-child(4) { background: var(--verde); opacity: 0.65; }
+    .accion-card:nth-child(5) { background: var(--teal); opacity: 0.65; }
+    .accion-card:nth-child(6) { background: var(--ocre); opacity: 0.65; }
+
+    .accion-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+    .accion-card h3 {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .accion-card p { font-size: 0.88rem; line-height: 1.6; opacity: 0.9; }
+
+    .acciones-ct.lj-reforma-wrapper a {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       08 · PROYECTO COLABORATIVO
+    ═══════════════════════════════════════════════════════════════ */
+    #colaborativo { background: var(--blanco); }
+
+    .colaborativo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .colaborativo-card {
+      background: var(--gris-suave);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      border-left: 5px solid var(--verde);
+    }
+    .colaborativo-card:nth-child(2) { border-left-color: var(--teal); }
+    .colaborativo-card:nth-child(3) { border-left-color: var(--ocre); }
+    .colaborativo-card:nth-child(4) { border-left-color: var(--verde); }
+
+    .colaborativo-card .card-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .colaborativo-card h3 {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--negro);
+      margin-bottom: 0.75rem;
+    }
+    .colaborativo-card p { font-size: 0.92rem; margin-bottom: 1rem; }
+    .colaborativo-card ul { list-style: none; }
+    .colaborativo-card ul li {
+      padding: 0.2rem 0 0.2rem 1.2rem;
+      position: relative;
+      font-size: 0.88rem;
+    }
+    .colaborativo-card ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--verde);
+    }
+    .colaborativo-card:nth-child(2) ul li::before { color: var(--teal); }
+    .colaborativo-card:nth-child(3) ul li::before { color: var(--ocre); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       09 · CTA FINAL
+    ═══════════════════════════════════════════════════════════════ */
+    #cierre {
+      background: var(--oscuro);
+      color: var(--blanco);
+      text-align: center;
+      padding: 7rem 0;
+    }
+
+    #cierre .section-label { color: var(--menta); }
+
+    #cierre h2 {
+      font-family: var(--font-title);
+      font-weight: 300;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      color: var(--blanco);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    #cierre .subtitle-cierre {
+      font-size: 1.3rem;
+      color: var(--menta);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    #cierre p {
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+    }
+    #cierre .btns-cierre {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+
+    /* Datos de contacto y donación */
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .contacto-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 1.75rem;
+      text-align: left;
+    }
+    .contacto-card h4 {
+      font-family: var(--font-title);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--menta);
+      margin-bottom: 1rem;
+    }
+    .contacto-card p {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 0.35rem;
+      line-height: 1.5;
+    }
+    .contacto-card .lj-reforma-wrapper a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+    }
+    .contacto-card a:hover { color: var(--menta); }
+    .contacto-card .highlight {
+      font-family: var(--font-title);
+      font-weight: 600;
+      color: var(--menta);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════════════════ */
+    #lj-footer {
+      background: #2e3b27;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem;
+      font-family: var(--font-title);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+    }
+    #lj-footer .lj-reforma-wrapper a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    footer a:hover { color: var(--menta); }
+
+    /* ── Utilidades ─────────────────────────────────────────────── */
+    .lj-reforma-wrapper .text-center { text-align: center; }
+    .lj-reforma-wrapper .mt-2 { margin-top: 2rem; }
+    .lj-reforma-wrapper .mb-3 { margin-bottom: 3rem; }
+
+    /* ── Botón flotante ─────────────────────────────────────────── */
+    .fab {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 200;
+      background: var(--verde);
+      color: var(--blanco);
+      font-family: var(--font-title);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 0.9rem 1.6rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(79,110,68,0.4);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      animation: fab-pulse 2.5s infinite;
+    }
+    .fab:hover {
+      background: var(--oscuro);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 32px rgba(74,94,58,0.5);
+      animation: none;
+    }
+    @keyframes fab-pulse {
+      0%, 100% { box-shadow: 0 6px 24px rgba(79,110,68,0.4); }
+      50%       { box-shadow: 0 6px 32px rgba(79,110,68,0.7); }
+    }
+    .fab .fab-icon { font-size: 1.1rem; }
+
+    /* ── CTA inline ─────────────────────────────────────────────── */
+    .cta-inline {
+      background: linear-gradient(135deg, var(--oscuro) 0%, #3d5231 100%);
+      border-radius: 20px;
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      margin: 3rem 0 1rem;
+      color: var(--blanco);
+    }
+    .cta-inline-text h3 {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--blanco);
+      margin-bottom: 0.35rem;
+    }
+    .cta-inline-text p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.5;
+    }
+    .cta-inline .lj-btn-inline-group {
+      display: flex;
+      gap: 0.75rem;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+    .lj-btn-ment.lj-reforma-wrapper a {
+      background: var(--menta);
+      color: var(--oscuro);
+      font-family: var(--font-title);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.7rem 1.5rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .lj-btn-menta:hover { background: #c4c9b0; }
+
+    .cta-strip {
+      background: var(--ocre);
+      border-radius: 14px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+      color: var(--blanco);
+    }
+    .cta-strip p {
+      font-family: var(--font-title);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--blanco);
+    }
+    .cta-strip .lj-btn-blanco {
+      background: var(--blanco);
+      color: var(--ocre);
+      font-family: var(--font-title);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.65rem 1.4rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .cta-strip .lj-btn-blanco:hover { background: var(--gris); }
+
+    @media (min-width: 901px) {
+      #lj-nav {
+        top: 2rem; left: 2rem; bottom: 2rem;
+        width: 260px;
+        display: flex;
+        flex-direction: column;
+        padding: 4rem 1.5rem;
+        box-shadow: none;
+      }
+      .lj-reforma-wrapper { padding-left: 320px; }
+      .nav-logo { font-size: 1.4rem; margin-bottom: 4rem; }
+      .nav-links { flex-direction: column; gap: 1.5rem; }
+    }
+
+    @media (max-width: 900px) {
+      #lj-nav { display: none !important; }
+      .hero-content { margin-top: 0; }
+      .fab { bottom: 1.2rem; right: 1.2rem; padding: 0.8rem 1.2rem; font-size: 0.82rem; }
+      .cta-inline { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+      .cta-inline .lj-btn-inline-group { justify-content: center; }
+      .cta-strip { flex-direction: column; text-align: center; }
+      .proyecto-grid, .financiacion-section, .razones-grid,
+      .acciones-grid, .colaborativo-grid { grid-template-columns: 1fr; }
+      .cifras-grid { grid-template-columns: repeat(3, 1fr); }
+      .cifras-grid .cifra-card:nth-child(4),
+      .cifras-grid .cifra-card:nth-child(5) { display: none; }
+      .galeria-grid-renders { grid-template-columns: 1fr 1fr; }
+      .galeria-grid-fotos { grid-template-columns: 1fr 1fr; }
+      .razones-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="lj-reforma-wrapper">
+
+  <!-- BOTÓN FLOTANTE -->
+  <a href="#cierre" class="fab">
+    <span class="fab-icon">💚</span>
+    Quiero colaborar
+  </a>
+
+  <!-- NAV -->
+  <nav id="lj-nav">
+    <a href="#" class="nav-logo">Las Jaras <span>Proyecto Reforma</span></a>
+    <ul class="nav-links">
+      <li><a href="#proyecto">El proyecto</a></li>
+      <li><a href="#razones">Por qué</a></li>
+      <li><a href="#fases">Fases</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#colaborar">Colaborar</a></li>
+    </ul>
+    <a href="#cierre" class="nav-cta">Quiero colaborar</a>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════════════════
+       01 · HERO
+  ════════════════════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Asociación Las Jaras · Proyecto Reforma 2025–2027</p>
+      <h1 class="hero-title">Diseñamos<br>nuestro futuro</h1>
+      <p class="hero-subtitle">
+        Una residencia a la altura de nuestra felicidad, que nos asegure
+        una vida digna con la tranquilidad que merecemos.
+      </p>
+      <div class="hero-btns">
+        <a href="#fases" class="lj-btn btn-primary">→ Conoce el proyecto</a>
+        <a href="#colaborar" class="lj-btn btn-secondary">→ Quiero colaborar</a>
+      </div>
+      <p class="hero-tag">Una familia, un hogar</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       02 · QUÉ ES EL PROYECTO
+  ════════════════════════════════════════════════════════════ -->
+  <section id="proyecto">
+    <div class="lj-container">
+      <div class="proyecto-grid">
+        <div class="proyecto-texto">
+          <p class="section-label">Quiénes somos</p>
+          <h2 class="section-title">Un proyecto<br>nacido del amor</h2>
+          <p>La Asociación Las Jaras es una entidad sin ánimo de lucro, declarada de utilidad pública, que lleva 45 años prestando los apoyos necesarios a mujeres con discapacidad intelectual a lo largo de toda su vida.</p>
+          <p>Hoy, <strong>47 mujeres</strong> de entre 27 y 79 años viven en Las Jaras. Para ellas, es su hogar. Para sus familias, es su tranquilidad. Para nosotros, es nuestro compromiso más profundo.</p>
+          <p>Hemos diseñado un proyecto de reforma integral valorado en <strong>5 millones de euros</strong>, estructurado en tres fases entre 2025 y 2027, siguiendo el modelo de atención centrada en la persona y la normativa vigente de la CAM (Orden 2680/2024).</p>
+        </div>
+        <div>
+          <div class="img-placeholder" style="height: 360px; border-radius:20px;">
+            <span class="icon">📷</span>
+            <span>Foto grupal de las 47 usuarias</span>
+          </div>
+          <div class="cita-block">
+            <p class="cita-text">"Para mí la residencia es mi casa. Me siento segura y querida en todo momento."</p>
+            <span class="cita-author">Ana Gómez · 30 años en Las Jaras</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cifras-grid">
+        <div class="cifra-card">
+          <span class="cifra-num">47</span>
+          <span class="cifra-label">mujeres residentes</span>
+        </div>
+        <div class="cifra-card">
+          <span class="cifra-num">45</span>
+          <span class="cifra-label">años de historia</span>
+        </div>
+        <div class="cifra-card">
+          <span class="cifra-num">5M€</span>
+          <span class="cifra-label">inversión total</span>
+        </div>
+        <div class="cifra-card">
+          <span class="cifra-num">3</span>
+          <span class="cifra-label">fases de reforma</span>
+        </div>
+        <div class="cifra-card">
+          <span class="cifra-num">2</span>
+          <span class="cifra-label">unidades de convivencia</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA 1: tras el proyecto -->
+  <div style="background:var(--gris-suave); padding: 0 0 1rem;">
+    <div class="lj-container">
+      <div class="cta-strip">
+        <p>¿Ya tienes claro que quieres colaborar? Cada aportación transforma vidas.</p>
+        <a href="#cierre" class="btn-blanco">→ Colabora ahora</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       03 · POR QUÉ ESTE FUTURO
+  ════════════════════════════════════════════════════════════ -->
+  <section id="razones">
+    <div class="lj-container">
+      <p class="section-label">Por qué este futuro</p>
+      <h2 class="section-title">¿Por qué necesitamos<br>este cambio?</h2>
+      <p style="max-width:620px;">El centro lleva años adaptándose a las necesidades de sus residentes, pero hay cinco razones fundamentales que hacen de esta reforma una necesidad impostergable:</p>
+
+      <div class="razones-grid">
+        <div class="razon-card">
+          <div class="razon-icon">♿</div>
+          <h3>Accesibilidad y autonomía</h3>
+          <ul class="razon-list">
+            <li>Eliminar barreras arquitectónicas</li>
+            <li>Facilitar la movilidad de las residentes</li>
+            <li>Espacios adaptados a las nuevas necesidades</li>
+          </ul>
+        </div>
+        <div class="razon-card">
+          <div class="razon-icon">🌿</div>
+          <h3>Eficiencia energética</h3>
+          <ul class="razon-list">
+            <li>Reducción del consumo energético</li>
+            <li>Mejora del aislamiento térmico</li>
+            <li>Sostenibilidad a largo plazo</li>
+          </ul>
+        </div>
+        <div class="razon-card">
+          <div class="razon-icon">🤍</div>
+          <h3>Envejecimiento de calidad</h3>
+          <ul class="razon-list">
+            <li>Adaptación de dormitorios y baños</li>
+            <li>Espacios que garantizan dignidad y confort</li>
+            <li>Atención al envejecimiento prematuro</li>
+          </ul>
+        </div>
+        <div class="razon-card">
+          <div class="razon-icon">🏡</div>
+          <h3>Preservar el legado</h3>
+          <ul class="razon-list">
+            <li>45 años de historia merecen un hogar digno</li>
+            <li>Mantener la esencia del proyecto original</li>
+            <li>Proyectar hacia el futuro con los mismos valores</li>
+          </ul>
+        </div>
+        <div class="razon-card" style="grid-column: span 1;">
+          <div class="razon-icon">📋</div>
+          <h3>Adaptación normativa</h3>
+          <ul class="razon-list">
+            <li>Cumplimiento Orden 2680/2024 de la CAM</li>
+            <li>Acreditación de calidad y seguridad</li>
+            <li>Garantía de continuidad del servicio</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       04 · FASES DE LA REFORMA
+  ════════════════════════════════════════════════════════════ -->
+  <section id="fases">
+    <div class="lj-container">
+      <p class="section-label">Un plan en tres etapas</p>
+      <h2 class="section-title">Fases de la reforma</h2>
+      <p style="max-width:600px; margin-bottom:1rem;">El proyecto distribuye la inversión en tres fases anuales para garantizar la continuidad de la vida cotidiana de las usuarias durante las obras.</p>
+
+      <div class="fases-timeline">
+        <!-- 2025 -->
+        <div class="fase-row">
+          <div class="fase-year" style="background:var(--verde);">
+            <span class="year-num">2025</span>
+            <span class="fase-badge">En marcha</span>
+          </div>
+          <div class="fase-content">
+            <h3 style="color:var(--verde);">Renovación de espacios comunes y servicios esenciales</h3>
+            <div class="fase-items">
+              <span class="fase-item">Talleres y zonas de actividades</span>
+              <span class="fase-item">Zonas comunes y convivencia</span>
+              <span class="fase-item">Cocina y lavandería</span>
+              <span class="fase-item">Sistema de climatización</span>
+            </div>
+          </div>
+        </div>
+        <!-- 2026 -->
+        <div class="fase-row">
+          <div class="fase-year" style="background:var(--teal);">
+            <span class="year-num">2026</span>
+          </div>
+          <div class="fase-content">
+            <h3 style="color:var(--teal);">Renovación de espacios de vida y cuidado</h3>
+            <div class="fase-items">
+              <span class="fase-item">Enfermería y atención sanitaria</span>
+              <span class="fase-item">Dormitorios individuales y compartidos</span>
+              <span class="fase-item">Salas polivalentes</span>
+              <span class="fase-item">Comedores</span>
+              <span class="fase-item">Capilla</span>
+            </div>
+          </div>
+        </div>
+        <!-- 2027 -->
+        <div class="fase-row">
+          <div class="fase-year" style="background:var(--ocre);">
+            <span class="year-num">2027</span>
+          </div>
+          <div class="fase-content">
+            <h3 style="color:var(--ocre);">Eficiencia energética y rehabilitación exterior</h3>
+            <div class="fase-items">
+              <span class="fase-item">Aislamiento de la envolvente</span>
+              <span class="fase-item">Renovación de la cubierta</span>
+              <span class="fase-item">Actuaciones exteriores y jardines</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Financiación -->
+      <div class="financiacion-section">
+        <div class="termometro-wrap">
+          <h3>¿Cómo lo financiamos?</h3>
+          <p class="objetivo">El proyecto requiere una inversión total de 5 millones de euros. Contamos ya con un 35% asegurado.</p>
+          <div class="barra-container">
+            <div class="barra-fill" id="barra" style="width:35%"></div>
+          </div>
+          <div class="barra-labels">
+            <span class="conseguido">35% conseguido · 1.750.000 €</span>
+            <span>Objetivo: 5.000.000 €</span>
+          </div>
+        </div>
+        <div class="desglose-grid">
+          <div class="desglose-item">
+            <span class="desglose-pct" style="color:var(--verde)">35%</span>
+            <p class="desglose-label">Ya conseguido</p>
+          </div>
+          <div class="desglose-item">
+            <span class="desglose-pct" style="color:var(--teal)">40%</span>
+            <p class="desglose-label">Empresas, Fundaciones y Colaboradores</p>
+          </div>
+          <div class="desglose-item">
+            <span class="desglose-pct" style="color:var(--ocre)">20%</span>
+            <p class="desglose-label">Familias y Asociados</p>
+          </div>
+          <div class="desglose-item">
+            <span class="desglose-pct" style="color:var(--menta); filter:brightness(0.7)">5%</span>
+            <p class="desglose-label">Subvenciones Públicas</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Donantes -->
+      <div class="donantes-section">
+        <h3>Nuestros aliados y donantes</h3>
+        <div class="donantes-grid">
+          <div class="donante-chip">
+            <span class="nombre">Fundación Nemesio Díez</span>
+            <span class="rol">Donante principal</span>
+          </div>
+          <div class="donante-chip">
+            <span class="nombre">CaixaBank</span>
+            <span class="rol">Colaborador financiero</span>
+          </div>
+          <div class="donante-placeholder">
+            <span>+ Próximo colaborador</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA 2: tras las fases -->
+  <div style="background:var(--blanco); padding: 0 0 2rem;">
+    <div class="lj-container">
+      <div class="cta-inline">
+        <div class="cta-inline-text">
+          <h3>La fase 2025 ya está en marcha</h3>
+          <p>Tu colaboración puede marcar la diferencia en la reforma de los espacios comunes este mismo año.</p>
+        </div>
+        <div class="btn-inline-group">
+          <a href="#colaborar" class="btn-menta">¿Cómo colaborar?</a>
+          <a href="#cierre" class="lj-btn btn-outline" style="font-size:0.88rem; padding:0.7rem 1.5rem;">Quiero donar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       05 · GALERÍA
+  ════════════════════════════════════════════════════════════ -->
+  <section id="galeria">
+    <div class="lj-container">
+      <p class="section-label">Galería</p>
+      <h2 class="section-title">Así será nuestro hogar</h2>
+      <p style="max-width:580px; margin-bottom:2.5rem;">Un vistazo al proyecto arquitectónico y a la vida que ya existe en Las Jaras, para que puedas imaginar lo que construiremos juntos.</p>
+
+      <p class="section-label" style="margin-bottom:1rem;">Renders del proyecto</p>
+      <div class="galeria-grid-renders">
+        <div class="galeria-item">
+          <div class="galeria-placeholder"><span class="icon">🏗️</span><span>Render exterior</span></div>
+        </div>
+        <div class="galeria-item">
+          <div class="galeria-placeholder"><span class="icon">🛋️</span><span>Zonas comunes</span></div>
+        </div>
+        <div class="galeria-item">
+          <div class="galeria-placeholder"><span class="icon">📐</span><span>Planta del proyecto</span></div>
+        </div>
+      </div>
+
+      <p class="section-label" style="margin:2.5rem 0 1rem;">La vida en Las Jaras hoy</p>
+      <div class="galeria-grid-fotos">
+        <div class="galeria-item">
+          <div class="galeria-foto-placeholder"><span class="icon">🌸</span><span>Usuarias en taller</span></div>
+        </div>
+        <div class="galeria-item">
+          <div class="galeria-foto-placeholder"><span class="icon">🏠</span><span>Espacio común</span></div>
+        </div>
+        <div class="galeria-item">
+          <div class="galeria-foto-placeholder"><span class="icon">🎨</span><span>Actividades</span></div>
+        </div>
+        <div class="galeria-item">
+          <div class="galeria-foto-placeholder"><span class="icon">🌿</span><span>Jardín / exterior</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA 3: tras la galería -->
+  <div style="background:var(--blanco); padding: 0 0 1rem;">
+    <div class="lj-container">
+      <div class="cta-strip">
+        <p>Cada imagen que ves podría ser una realidad muy pronto. ¿Nos ayudas a hacerlo posible?</p>
+        <a href="#cierre" class="btn-blanco">→ Sí, quiero colaborar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       06 · CÓMO COLABORAR
+  ════════════════════════════════════════════════════════════ -->
+  <section id="colaborar">
+    <div class="lj-container">
+      <p class="section-label">Cómo colaborar</p>
+      <h2 class="section-title">Tú también puedes<br>ser parte de este hogar</h2>
+      <p style="max-width:600px;">Hay muchas formas de sumarte a este proyecto. Todas ellas marcan una diferencia real en la vida de 47 mujeres.</p>
+
+      <div class="colaborar-grid">
+        <div class="colaborar-card">
+          <h3>💰 Donaciones monetarias</h3>
+          <ul>
+            <li>Mejorar la eficiencia energética</li>
+            <li>Adaptar un dormitorio</li>
+            <li>Renovar los espacios de vida común</li>
+            <li>Las donaciones tienen ventajas fiscales</li>
+          </ul>
+        </div>
+        <div class="colaborar-card">
+          <h3>🤝 Actividades de mecenazgo</h3>
+          <ul>
+            <li>Organizar un evento solidario</li>
+            <li>Recaudar fondos con empleados y clientes</li>
+            <li>Visibilizar tu compromiso con la inclusión</li>
+          </ul>
+        </div>
+        <div class="colaborar-card">
+          <h3>🫶 Voluntariado corporativo</h3>
+          <ul>
+            <li>Actividades de ocio compartido con las usuarias</li>
+            <li>Visitas de sensibilización a tu organización</li>
+            <li>Grupos de trabajo y mantenimiento</li>
+          </ul>
+        </div>
+        <div class="colaborar-card">
+          <h3>🎁 Donaciones en especie</h3>
+          <ul>
+            <li>Materiales de construcción o rehabilitación</li>
+            <li>Equipamientos para los nuevos espacios</li>
+            <li>Servicios profesionales (arquitectura, comunicación...)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="fiscal-banner">
+        <h3>📑 Ventajas fiscales de donar</h3>
+        <p><strong>Las Jaras está declarada entidad de utilidad pública.</strong> Las donaciones se acogen a la Ley 49/2002 de Mecenazgo: hasta el <strong>80%</strong> de los primeros 150 € y hasta el <strong>35–40%</strong> del resto en IRPF. Las empresas pueden deducir hasta el <strong>40%</strong> en el Impuesto de Sociedades.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       07 · ACCIONES DE CAPTACIÓN
+  ════════════════════════════════════════════════════════════ -->
+  <section id="acciones">
+    <div class="lj-container">
+      <p class="section-label">Acciones de captación</p>
+      <h2 class="section-title">Juntos ya hemos empezado</h2>
+      <p style="max-width:580px; margin-bottom:1rem;">Familias, amigos y colaboradores están moviéndose para hacer realidad este proyecto. Estas son algunas de las iniciativas solidarias que ya han tenido lugar o están en marcha:</p>
+
+      <div class="acciones-grid">
+        <div class="accion-card">
+          <span class="accion-icon">🎭</span>
+          <h3>Teatro solidario</h3>
+          <p>Función benéfica con entrada a precio libre a favor del proyecto de reforma de Las Jaras.</p>
+        </div>
+        <div class="accion-card">
+          <span class="accion-icon">✝️</span>
+          <h3>Las Tres Cruces</h3>
+          <p>Iniciativa solidaria vinculada a la tradición y la comunidad de Las Jaras.</p>
+        </div>
+        <div class="accion-card">
+          <span class="accion-icon">📖</span>
+          <h3>El Cuento Solidario</h3>
+          <p>Proyecto editorial con ilustraciones de las usuarias para recaudar fondos para la reforma.</p>
+        </div>
+        <div class="accion-card">
+          <span class="accion-icon">🎵</span>
+          <h3>Próxima iniciativa</h3>
+          <p>¿Quieres organizar tu propio evento? Contacta con nosotros y lo hacemos juntos.</p>
+        </div>
+        <div class="accion-card">
+          <span class="accion-icon">🏃</span>
+          <h3>Próxima iniciativa</h3>
+          <p>Cada evento suma. Toda la comunidad puede contribuir a este sueño colectivo.</p>
+        </div>
+        <div class="accion-card">
+          <span class="accion-icon">🎨</span>
+          <h3>Próxima iniciativa</h3>
+          <p>Inscríbete en nuestra newsletter para conocer las próximas acciones solidarias.</p>
+        </div>
+      </div>
+
+      <div class="acciones-cta">
+        <a href="#cierre" class="lj-btn btn-primary" style="margin-top:1.5rem;">→ Organiza tu propio evento</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA 4: tras acciones de captación -->
+  <div style="background:var(--gris-suave); padding: 0 0 2rem;">
+    <div class="lj-container">
+      <div class="cta-inline">
+        <div class="cta-inline-text">
+          <h3>¿Tienes una idea para recaudar fondos?</h3>
+          <p>Cuéntanos tu iniciativa y la hacemos realidad juntos. Cualquier acción suma a este proyecto colectivo.</p>
+        </div>
+        <div class="btn-inline-group">
+          <a href="#cierre" class="btn-menta">Cuéntanos tu idea</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       08 · PROYECTO COLABORATIVO
+  ════════════════════════════════════════════════════════════ -->
+  <section id="colaborativo">
+    <div class="lj-container">
+      <p class="section-label">Proyecto colaborativo</p>
+      <h2 class="section-title">Un proyecto que se<br>construye entre todas</h2>
+      <p style="max-width:620px;">La reforma de Las Jaras no es solo un proyecto arquitectónico: es un proceso participativo en el que las mujeres, sus familias y el equipo de profesionales tienen voz y protagonismo.</p>
+
+      <div class="colaborativo-grid">
+        <div class="colaborativo-card">
+          <span class="card-icon">🌸</span>
+          <h3>Talleres con las mujeres</h3>
+          <p>Las 47 residentes participan activamente en el diseño de su futuro hogar. A través de talleres adaptados, expresan sus preferencias sobre espacios, colores, materiales y distribuciones.</p>
+          <ul>
+            <li>Talleres de diseño participativo</li>
+            <li>Elección de materiales y acabados</li>
+            <li>Sesiones de expresión artística vinculadas al proyecto</li>
+          </ul>
+        </div>
+        <div class="colaborativo-card">
+          <span class="card-icon">🏛️</span>
+          <h3>Asamblea de la asociación</h3>
+          <p>La reforma es presentada y aprobada en asamblea, con la participación de socios, familias y equipo directivo, garantizando transparencia y valores compartidos.</p>
+          <ul>
+            <li>Presentación del proyecto en asamblea anual</li>
+            <li>Aprobación de fases e inversión</li>
+            <li>Información continua a todos los miembros</li>
+          </ul>
+        </div>
+        <div class="colaborativo-card">
+          <span class="card-icon">👨‍👩‍👧</span>
+          <h3>Talleres con las familias</h3>
+          <p>Las familias participan en sesiones informativas y talleres donde conocen el avance del proyecto, resuelven dudas y contribuyen con sus ideas al proceso.</p>
+          <ul>
+            <li>Reuniones informativas por fases</li>
+            <li>Talleres de co-diseño con familiares</li>
+            <li>Participación en iniciativas de captación</li>
+          </ul>
+        </div>
+        <div class="colaborativo-card">
+          <span class="card-icon">📋</span>
+          <h3>Cómo participar</h3>
+          <p>Si eres familiar, colaborador o simplemente alguien que quiere sumarse a este proceso colectivo, puedes hacerlo de muchas formas:</p>
+          <ul>
+            <li>Asistiendo a las próximas jornadas y talleres</li>
+            <li>Inscribiéndote en la newsletter del proyecto</li>
+            <li>Compartiendo el proyecto en tus redes sociales</li>
+            <li>Contactando con nosotros directamente</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA 5: tras proyecto colaborativo -->
+  <div style="background:var(--blanco); padding: 0 0 1rem;">
+    <div class="lj-container">
+      <div class="cta-strip">
+        <p>Únete al proceso. Participa en los talleres, asiste a la asamblea o apoya económicamente.</p>
+        <a href="#cierre" class="btn-blanco">→ Quiero participar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       09 · CTA FINAL
+  ════════════════════════════════════════════════════════════ -->
+  <section id="cierre">
+    <div class="lj-container">
+      <p class="section-label">Un hogar, un propósito</p>
+      <h2>Diseñamos nuestro futuro</h2>
+      <p class="subtitle-cierre">...un futuro digno y feliz.</p>
+      <p>Juntos podemos construir el hogar que Las Jaras y sus 47 mujeres merecen. Cada aportación, por pequeña que sea, se transforma en dignidad, en autonomía, en felicidad.</p>
+
+      <div class="btns-cierre">
+        <a href="https://www.lasjarasresidencia.com/donaciones" target="_blank" class="lj-btn btn-outline">→ Quiero colaborar ahora</a>
+        <a href="#" class="lj-btn btn-secondary">→ Descarga el dossier</a>
+      </div>
+
+      <div class="contacto-grid">
+        <div class="contacto-card">
+          <h4>Datos de donación</h4>
+          <p><span class="highlight">Transferencia</span></p>
+          <p>Asociación Las Jaras</p>
+          <p>IBAN: ES66 2100 2120 8102 0080 7266</p>
+          <p>CaixaBank</p>
+          <p style="margin-top:0.75rem;"><span class="highlight">BIZUM ONG: 12007</span></p>
+        </div>
+        <div class="contacto-card">
+          <h4>Contacto directo</h4>
+          <p>📞 <a href="tel:916383893">916 383 893</a></p>
+          <p>✉️ <a href="mailto:apadreslasjaras@apadreslasjaras.com">apadreslasjaras@apadreslasjaras.com</a></p>
+          <p>📍 Ctra. de Boadilla (M516), 98<br>28222 Majadahonda</p>
+          <p style="margin-top:0.75rem;"><span class="highlight"><a href="https://www.lasjarasresidencia.com" target="_blank">www.lasjarasresidencia.com</a></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="lj-footer">
+    <p>
+      © 2025 Asociación Las Jaras · Entidad de Utilidad Pública ·
+      <a href="#">Aviso legal</a> ·
+      <a href="#">Política de privacidad</a> ·
+      <a href="https://www.lasjarasresidencia.com" target="_blank">www.lasjarasresidencia.com</a>
+    </p>
+  </footer>
+
+  <!-- ── Scripts ─────────────────────────────────────────────────────── -->
+  <script>
+    // Animar la barra de progreso cuando sea visible
+    const barra = document.getElementById('barra');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => { barra.style.width = '35%'; }, 300);
+          observer.unobserve(barra);
+        }
+      });
+    }, { threshold: 0.5 });
+    observer.observe(barra);
+
+    // Inicializar barra a 0 para animar
+    barra.style.width = '0%';
+
+    // Smooth reveal on scroll
+    const cards = document.querySelectorAll('.razon-card, .fase-row, .colaborar-card, .accion-card, .colaborativo-card, .cifra-card');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, 80 * (i % 4));
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    cards.forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      revealObserver.observe(card);
+    });
+
+    // Scroll Spy for Nav tracking
+    const navLinksList = document.querySelectorAll('.nav-links a');
+    const pageSections = document.querySelectorAll('section');
+
+    const spyOptions = {
+      root: null,
+      threshold: 0.4,
+      rootMargin: "0px"
+    };
+
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinksList.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, spyOptions);
+
+    pageSections.forEach(section => spyObserver.observe(section));
+  </script>
+</div>
+</body>
+</html>
