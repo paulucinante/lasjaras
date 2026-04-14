@@ -74,7 +74,7 @@
       list-style: none;
       pointer-events: auto;
     }
-    .nav-links .lj-reforma-wrapper a {
+    .nav-links a {
       text-decoration: none;
       font-family: var(--font-title);
       font-size: 0.85rem;
@@ -92,7 +92,7 @@
       transform: translateX(8px);
     }
 
-    .nav-ct.lj-reforma-wrapper a {
+    .nav-cta {
       margin-top: 2rem;
       display: inline-block;
       pointer-events: auto;
@@ -585,7 +585,7 @@
     /* ═══════════════════════════════════════════════════════════════
        05 · GALERÍA
     ═══════════════════════════════════════════════════════════════ */
-    #galeri.lj-reforma-wrapper a { background: var(--gris-suave); }
+    #galeria { background: var(--gris-suave); }
 
     .galeria-grid-renders {
       display: grid;
@@ -993,7 +993,7 @@
       white-space: nowrap;
       transition: background 0.2s;
     }
-    .cta-strip .lj-btn-blanco:hover { background: var(--gris); }
+    .cta-strip .btn-blanco:hover { background: var(--gris); }
 
     @media (min-width: 901px) {
       #lj-nav {
@@ -1023,7 +1023,6 @@
       .cifras-grid .cifra-card:nth-child(5) { display: none; }
       .galeria-grid-renders { grid-template-columns: 1fr 1fr; }
       .galeria-grid-fotos { grid-template-columns: 1fr 1fr; }
-      .razones-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -1055,17 +1054,17 @@
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow">Asociación Las Jaras · Proyecto Reforma 2025–2027</p>
-      <h1 class="hero-title">Diseñamos<br>nuestro futuro</h1>
+      <div class="hero-eyebrow">UN PROYECTO DE REFORMA PARA LAS JARAS</div>
+      <h1 class="hero-title">Diseñamos nuestro futuro</h1>
       <p class="hero-subtitle">
-        Una residencia a la altura de nuestra felicidad, que nos asegure
-        una vida digna con la tranquilidad que merecemos.
+        Desde 1978 cuidamos la vida y el futuro de mujeres con discapacidad intelectual. 
+        Hoy necesitamos renovar nuestro hogar para que siga siendo el lugar que ellas necesitan.
       </p>
       <div class="hero-btns">
-        <a href="#fases" class="lj-btn btn-primary">→ Conoce el proyecto</a>
-        <a href="#colaborar" class="lj-btn btn-secondary">→ Quiero colaborar</a>
+        <a href="#colaborar" class="lj-btn lj-btn-primary">Quiero colaborar</a>
+        <a href="#fases" class="lj-btn lj-btn-secondary">Conoce el proyecto</a>
       </div>
-      <p class="hero-tag">Una familia, un hogar</p>
+      <div class="hero-tag">Residencia Las Jaras · Madrid · 2025–2027</div>
     </div>
   </section>
 
@@ -1076,11 +1075,11 @@
     <div class="lj-container">
       <div class="proyecto-grid">
         <div class="proyecto-texto">
-          <p class="section-label">Quiénes somos</p>
-          <h2 class="section-title">Un proyecto<br>nacido del amor</h2>
+          <div class="section-label">SECCIÓN 01 · EL CONCEPTO</div>
+          <h2 class="section-title">Cuidamos Las Jaras para que Las Jaras sigan cuidando.</h2>
           <p>La Asociación Las Jaras es una entidad sin ánimo de lucro, declarada de utilidad pública, que lleva 45 años prestando los apoyos necesarios a mujeres con discapacidad intelectual a lo largo de toda su vida.</p>
-          <p>Hoy, <strong>47 mujeres</strong> de entre 27 y 79 años viven en Las Jaras. Para ellas, es su hogar. Para sus familias, es su tranquilidad. Para nosotros, es nuestro compromiso más profundo.</p>
-          <p>Hemos diseñado un proyecto de reforma integral valorado en <strong>5 millones de euros</strong>, estructurado en tres fases entre 2025 y 2027, siguiendo el modelo de atención centrada en la persona y la normativa vigente de la CAM (Orden 2680/2024).</p>
+          <p>Hoy, <strong>47 mujeres</strong> viven en Las Jaras. Para ellas, es su hogar. Para sus familias, es su tranquilidad. Para nosotros, es nuestro compromiso más profundo.</p>
+          <p>Hemos diseñado un proyecto de reforma integral valorado en <strong>5 millones de euros</strong>, estructurado en tres fases entre 2025 y 2027, siguiendo el modelo de atención centrada en la persona y la normativa vigente de la CAM.</p>
         </div>
         <div>
           <div class="img-placeholder" style="height: 360px; border-radius:20px;">
@@ -1097,23 +1096,15 @@
       <div class="cifras-grid">
         <div class="cifra-card">
           <span class="cifra-num">47</span>
-          <span class="cifra-label">mujeres residentes</span>
+          <span class="cifra-label">mujeres ya tienen su hogar en Las Jaras</span>
         </div>
         <div class="cifra-card">
-          <span class="cifra-num">45</span>
-          <span class="cifra-label">años de historia</span>
+          <span class="cifra-num">0</span>
+          <span class="cifra-label">financiación de la administración para esta obra</span>
         </div>
         <div class="cifra-card">
-          <span class="cifra-num">5M€</span>
-          <span class="cifra-label">inversión total</span>
-        </div>
-        <div class="cifra-card">
-          <span class="cifra-num">3</span>
-          <span class="cifra-label">fases de reforma</span>
-        </div>
-        <div class="cifra-card">
-          <span class="cifra-num">2</span>
-          <span class="cifra-label">unidades de convivencia</span>
+          <span class="cifra-num">1</span>
+          <span class="cifra-label">objetivo común: un futuro seguro</span>
         </div>
       </div>
     </div>
@@ -1198,19 +1189,18 @@
       <p style="max-width:600px; margin-bottom:1rem;">El proyecto distribuye la inversión en tres fases anuales para garantizar la continuidad de la vida cotidiana de las usuarias durante las obras.</p>
 
       <div class="fases-timeline">
-        <!-- 2025 -->
+        <!-- 2024-2025 -->
         <div class="fase-row">
           <div class="fase-year" style="background:var(--verde);">
-            <span class="year-num">2025</span>
+            <span class="year-num">2024-25</span>
             <span class="fase-badge">En marcha</span>
           </div>
           <div class="fase-content">
-            <h3 style="color:var(--verde);">Renovación de espacios comunes y servicios esenciales</h3>
+            <h3 style="color:var(--verde);">Eficiencia energética y confort térmico</h3>
             <div class="fase-items">
-              <span class="fase-item">Talleres y zonas de actividades</span>
-              <span class="fase-item">Zonas comunes y convivencia</span>
-              <span class="fase-item">Cocina y lavandería</span>
-              <span class="fase-item">Sistema de climatización</span>
+              <span class="fase-item">Instalación Aerotermia</span>
+              <span class="fase-item">Renovación de climatización</span>
+              <span class="fase-item">Mejora de aislamiento</span>
             </div>
           </div>
         </div>
@@ -1220,12 +1210,11 @@
             <span class="year-num">2026</span>
           </div>
           <div class="fase-content">
-            <h3 style="color:var(--teal);">Renovación de espacios de vida y cuidado</h3>
+            <h3 style="color:var(--teal);">Accesibilidad, bienestar y vida común</h3>
             <div class="fase-items">
-              <span class="fase-item">Enfermería y atención sanitaria</span>
-              <span class="fase-item">Dormitorios individuales y compartidos</span>
-              <span class="fase-item">Salas polivalentes</span>
-              <span class="fase-item">Comedores</span>
+              <span class="fase-item">Reformas de cocina y lavandería</span>
+              <span class="fase-item">Dormitorios y baños adaptados</span>
+              <span class="fase-item">Zonas comunes y talleres</span>
               <span class="fase-item">Capilla</span>
             </div>
           </div>
@@ -1236,11 +1225,11 @@
             <span class="year-num">2027</span>
           </div>
           <div class="fase-content">
-            <h3 style="color:var(--ocre);">Eficiencia energética y rehabilitación exterior</h3>
+            <h3 style="color:var(--ocre);">Exterior y protección del edificio</h3>
             <div class="fase-items">
               <span class="fase-item">Aislamiento de la envolvente</span>
               <span class="fase-item">Renovación de la cubierta</span>
-              <span class="fase-item">Actuaciones exteriores y jardines</span>
+              <span class="fase-item">Exterior y jardines</span>
             </div>
           </div>
         </div>
@@ -1250,22 +1239,22 @@
       <div class="financiacion-section">
         <div class="termometro-wrap">
           <h3>¿Cómo lo financiamos?</h3>
-          <p class="objetivo">El proyecto requiere una inversión total de 5 millones de euros. Contamos ya con un 35% asegurado.</p>
+          <p class="objetivo">Hacer realidad este proyecto requiere una inversión de 5 millones de euros. Ya hemos recorrido parte del camino, pero aún necesitamos ayuda para llegar al final.</p>
           <div class="barra-container">
-            <div class="barra-fill" id="barra" style="width:35%"></div>
+            <div class="barra-fill" id="barra" style="width:45%"></div>
           </div>
           <div class="barra-labels">
-            <span class="conseguido">35% conseguido · 1.750.000 €</span>
+            <span class="conseguido">45% conseguido · 2.250.000 €</span>
             <span>Objetivo: 5.000.000 €</span>
           </div>
         </div>
         <div class="desglose-grid">
           <div class="desglose-item">
-            <span class="desglose-pct" style="color:var(--verde)">35%</span>
-            <p class="desglose-label">Ya conseguido</p>
+            <span class="desglose-pct" style="color:var(--verde)">45%</span>
+            <p class="desglose-label">✔ Conseguido</p>
           </div>
           <div class="desglose-item">
-            <span class="desglose-pct" style="color:var(--teal)">40%</span>
+            <span class="desglose-pct" style="color:var(--teal)">75%</span>
             <p class="desglose-label">Empresas, Fundaciones y Colaboradores</p>
           </div>
           <div class="desglose-item">
