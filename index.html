@@ -174,12 +174,17 @@
       transition: all 0.25s;
       letter-spacing: 0.02em;
     }
-    .lj-btn-primary { background: var(--verde); color: var(--blanco); }
+    .lj-reforma-wrapper a.lj-btn { text-decoration: none; }
+    .lj-btn-primary { background: var(--verde); color: var(--blanco) !important; }
     .lj-btn-primary:hover { background: var(--oscuro); }
-    .lj-btn-secondary { background: var(--ocre); color: var(--blanco); }
+    .lj-btn-secondary { background: var(--ocre); color: var(--blanco) !important; }
     .lj-btn-secondary:hover { background: #b88b69; }
-    .lj-btn-outline { background: transparent; color: var(--blanco); border: 2px solid var(--blanco); }
-    .lj-btn-outline:hover { background: var(--blanco); color: var(--oscuro); }
+    .lj-btn-outline { 
+      background: transparent; 
+      color: var(--gris-suave) !important; 
+      border: 2px solid var(--gris-suave); 
+    }
+    .lj-btn-outline:hover { background: var(--gris-suave); color: var(--oscuro) !important; }
 
     /* ── Placeholder imágenes ──────────────────────────────────────── */
     .img-placeholder {
@@ -1015,13 +1020,13 @@
     }
     .btn-menta {
       background: var(--menta);
-      color: var(--oscuro);
+      color: var(--oscuro) !important;
       font-family: var(--font-title);
       font-size: 0.88rem;
       font-weight: 600;
       padding: 0.7rem 1.5rem;
       border-radius: var(--radius);
-      text-decoration: none;
+      text-decoration: none !important;
       transition: background 0.2s;
     }
     .lj-btn-menta:hover { background: #c4c9b0; }
