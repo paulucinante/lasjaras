@@ -1132,6 +1132,37 @@
     .carousel-vida::-webkit-scrollbar {
       display: none;
     }
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      border: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      color: var(--verde);
+      font-size: 1.1rem;
+    }
+    .carousel-nav:hover {
+      background: var(--verde);
+      color: white;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 8px 20px rgba(127, 148, 114, 0.3);
+    }
+    .carousel-nav.prev { left: -24px; }
+    .carousel-nav.next { right: -24px; }
+    
+    @media (max-width: 900px) {
+      .carousel-nav { display: none; }
+    }
     .carousel-item {
       flex: 0 0 350px;
       aspect-ratio: 4/3;
@@ -1553,7 +1584,8 @@
 
       <p class="section-label" style="margin:2.5rem 0 0.5rem;">La vida en Las Jaras hoy</p>
       <div class="carousel-vida-container">
-        <div class="carousel-vida">
+        <button class="carousel-nav prev" onclick="scrollCarousel(-1)" aria-label="Anterior">❮</button>
+        <div class="carousel-vida" id="carouselVida">
           <div class="carousel-item" onclick="openLightbox('images/vida_1.jpg')">
             <img src="images/vida_1.jpg" alt="Vida en Las Jaras 1">
             <div class="carousel-overlay">🔍</div>
@@ -1575,6 +1607,7 @@
             <div class="carousel-overlay">🔍</div>
           </div>
         </div>
+        <button class="carousel-nav next" onclick="scrollCarousel(1)" aria-label="Siguiente">❯</button>
       </div>
     </div>
   </section>
@@ -1839,6 +1872,17 @@
         lb.style.display = 'none';
         document.body.style.overflow = '';
       }, 400);
+    }
+
+    // Carousel navigation
+    function scrollCarousel(direction) {
+      const carousel = document.getElementById('carouselVida');
+      const itemWidth = carousel.querySelector('.carousel-item').offsetWidth;
+      const gap = 24; // 1.5rem
+      carousel.scrollBy({
+        left: direction * (itemWidth + gap),
+        behavior: 'smooth'
+      });
     }
   </script>
 
