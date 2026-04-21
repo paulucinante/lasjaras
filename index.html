@@ -163,11 +163,11 @@
 
     .lj-btn {
       display: inline-block;
-      padding: 0.85rem 2.2rem;
+      padding: 1rem 2.5rem;
       border-radius: var(--radius);
       font-family: var(--font-title);
-      font-size: 0.95rem;
-      font-weight: 400;
+      font-size: 1.05rem;
+      font-weight: 500;
       text-decoration: none;
       cursor: pointer;
       border: none;
@@ -1580,7 +1580,7 @@
         </div>
         <div class="btn-inline-group">
           <a href="#colaborar" class="btn-menta">¿Cómo colaborar?</a>
-          <a href="#cierre" class="lj-btn btn-outline" style="font-size:0.88rem; padding:0.7rem 1.5rem;">Quiero donar</a>
+          <a href="#cierre" class="lj-btn lj-btn-outline" style="font-size:0.88rem; padding:0.7rem 1.5rem;">Quiero donar</a>
         </div>
       </div>
     </div>
@@ -1600,16 +1600,31 @@
       </div>
 
       <p class="section-label" style="margin-bottom:1rem;">Renders del proyecto</p>
-      <div class="galeria-grid-renders">
-        <div class="galeria-item">
-          <div class="galeria-placeholder"><span class="icon">🏗️</span><span>Render exterior</span></div>
+      <div class="carousel-vida-container">
+        <button class="carousel-nav prev" onclick="scrollCarousel('carouselRenders', -1)" aria-label="Anterior">❮</button>
+        <div class="carousel-vida" id="carouselRenders">
+          <div class="carousel-item" onclick="openLightbox('images/render_1.jpg')">
+            <img src="images/render_1.jpg" alt="Render Proyecto 1">
+            <div class="carousel-overlay">🔍</div>
+          </div>
+          <div class="carousel-item" onclick="openLightbox('images/render_2.jpg')">
+            <img src="images/render_2.jpg" alt="Render Proyecto 2">
+            <div class="carousel-overlay">🔍</div>
+          </div>
+          <div class="carousel-item" onclick="openLightbox('images/render_3.jpg')">
+            <img src="images/render_3.jpg" alt="Render Proyecto 3">
+            <div class="carousel-overlay">🔍</div>
+          </div>
+          <div class="carousel-item" onclick="openLightbox('images/render_4.jpg')">
+            <img src="images/render_4.jpg" alt="Render Proyecto 4">
+            <div class="carousel-overlay">🔍</div>
+          </div>
+          <div class="carousel-item" onclick="openLightbox('images/render_5.jpg')">
+            <img src="images/render_5.jpg" alt="Render Proyecto 5">
+            <div class="carousel-overlay">🔍</div>
+          </div>
         </div>
-        <div class="galeria-item">
-          <div class="galeria-placeholder"><span class="icon">🛋️</span><span>Zonas comunes</span></div>
-        </div>
-        <div class="galeria-item">
-          <div class="galeria-placeholder"><span class="icon">📐</span><span>Planta del proyecto</span></div>
-        </div>
+        <button class="carousel-nav next" onclick="scrollCarousel('carouselRenders', 1)" aria-label="Siguiente">❯</button>
       </div>
 
       <div class="cta-strip">
@@ -1619,7 +1634,7 @@
 
       <p class="section-label" style="margin:2.5rem 0 0.5rem;">La vida en Las Jaras hoy</p>
       <div class="carousel-vida-container">
-        <button class="carousel-nav prev" onclick="scrollCarousel(-1)" aria-label="Anterior">❮</button>
+        <button class="carousel-nav prev" onclick="scrollCarousel('carouselVida', -1)" aria-label="Anterior">❮</button>
         <div class="carousel-vida" id="carouselVida">
           <div class="carousel-item" onclick="openLightbox('images/vida_1.jpg')">
             <img src="images/vida_1.jpg" alt="Vida en Las Jaras 1">
@@ -1654,7 +1669,7 @@
             <div class="carousel-overlay">🔍</div>
           </div>
         </div>
-        <button class="carousel-nav next" onclick="scrollCarousel(1)" aria-label="Siguiente">❯</button>
+        <button class="carousel-nav next" onclick="scrollCarousel('carouselVida', 1)" aria-label="Siguiente">❯</button>
       </div>
     </div>
   </section>
@@ -1761,7 +1776,7 @@
       </div>
 
       <div class="acciones-cta">
-        <a href="#cierre" class="lj-btn btn-primary" style="margin-top:1.5rem;">→ Organiza tu propio evento</a>
+        <a href="#cierre" class="lj-btn lj-btn-primary" style="margin-top:1.5rem;">→ Organiza tu propio evento</a>
       </div>
     </div>
   </section>
@@ -1794,8 +1809,8 @@
       <p>Juntos podemos construir el hogar que Las Jaras y sus 48 mujeres merecen. Cada aportación, por pequeña que sea, se transforma en dignidad, en autonomía, en felicidad.</p>
 
       <div class="btns-cierre">
-        <a href="https://www.lasjarasresidencia.com/dona/" target="_blank" class="lj-btn btn-outline">→ Quiero colaborar ahora</a>
-        <a href="#" class="lj-btn btn-secondary">→ Descarga el dossier</a>
+        <a href="https://www.lasjarasresidencia.com/dona/" target="_blank" class="lj-btn lj-btn-outline">→ Quiero colaborar ahora</a>
+        <a href="#" class="lj-btn lj-btn-secondary">→ Descarga el dossier</a>
       </div>
 
       <div class="contacto-grid">
@@ -1912,8 +1927,8 @@
     }
 
     // Carousel navigation
-    function scrollCarousel(direction) {
-      const carousel = document.getElementById('carouselVida');
+    function scrollCarousel(id, direction) {
+      const carousel = document.getElementById(id);
       const itemWidth = carousel.querySelector('.carousel-item').offsetWidth;
       const gap = 24; // 1.5rem
       carousel.scrollBy({
