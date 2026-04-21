@@ -956,28 +956,6 @@
     #lj-footer .lj-reforma-wrapper a { color: rgba(255,255,255,0.6); text-decoration: none; }
     footer a:hover { color: var(--menta); }
 
-    .cta-strip-section {
-      background: #FDF3EA;
-      padding: 4.5rem 0;
-      border-top: 1px solid rgba(208,166,131,0.1);
-      border-bottom: 1px solid rgba(208,166,131,0.1);
-    }
-    .cta-strip-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-    .cta-strip-content p {
-      font-family: var(--font-title);
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--ocre);
-      margin: 0;
-      max-width: 700px;
-    }
-
     /* ── Utilidades ─────────────────────────────────────────────── */
     .lj-reforma-wrapper .text-center { text-align: center; }
     .lj-reforma-wrapper .mt-2 { margin-top: 2rem; }
@@ -1390,16 +1368,14 @@
           <span class="cifra-label">unidades de convivencia</span>
         </div>
       </div>
+
+      <div class="cta-strip" style="margin-top: 4rem;">
+        <p>¿Ya tienes claro que quieres colaborar? Cada aportación transforma vidas.</p>
+        <a href="#cierre" class="btn-blanco">→ Colabora ahora</a>
+      </div>
     </div>
   </section>
 
-  <!-- CTA 1: tras el proyecto -->
-  <section class="cta-strip-section">
-    <div class="lj-container cta-strip-content">
-      <p>¿Ya tienes claro que quieres colaborar? Cada aportación transforma vidas.</p>
-      <a href="#cierre" class="lj-btn lj-btn-secondary">→ Colabora ahora</a>
-    </div>
-  </section>
 
   <!-- ════════════════════════════════════════════════════════════
        03 · POR QUÉ ESTE FUTURO
@@ -1643,11 +1619,9 @@
         <button class="carousel-nav next" onclick="scrollCarousel('carouselRenders', 1)" aria-label="Siguiente">❯</button>
       </div>
 
-      <div class="cta-strip-section" style="margin: 3.5rem -2rem 3.5rem; padding: 3.5rem 2rem;">
-        <div class="cta-strip-content">
-          <p>Cada imagen que ves podría ser una realidad muy pronto. ¿Nos ayudas a hacerlo posible?</p>
-          <a href="#cierre" class="lj-btn lj-btn-secondary">→ Sí, quiero colaborar</a>
-        </div>
+      <div class="cta-strip">
+        <p>Cada imagen que ves podría ser una realidad muy pronto. ¿Nos ayudas a hacerlo posible?</p>
+        <a href="#cierre" class="btn-blanco">→ Sí, quiero colaborar</a>
       </div>
 
       <p class="section-label" style="margin:2.5rem 0 0.5rem;">La vida en Las Jaras hoy</p>
