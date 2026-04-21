@@ -1111,6 +1111,112 @@
       .cifras-grid .cifra-card:nth-child(5) { display: none; }
       .galeria-grid-renders { grid-template-columns: 1fr 1fr; }
       .galeria-grid-fotos { grid-template-columns: 1fr 1fr; }
+      .carousel-item { flex: 0 0 280px; }
+    }
+
+    /* ── Carousel Vida en las Jaras ──────────────────────────────── */
+    .carousel-vida-container {
+      position: relative;
+      margin: 2rem 0;
+    }
+    .carousel-vida {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none; 
+      -ms-overflow-style: none;
+      padding: 1rem 0;
+    }
+    .carousel-vida::-webkit-scrollbar {
+      display: none;
+    }
+    .carousel-item {
+      flex: 0 0 350px;
+      aspect-ratio: 4/3;
+      scroll-snap-align: center;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: zoom-in;
+      position: relative;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .carousel-item:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .carousel-item:hover img {
+      transform: scale(1.05);
+    }
+    .carousel-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(127, 148, 114, 0.2);
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s;
+      color: white;
+      font-size: 1.8rem;
+      backdrop-filter: blur(2px);
+    }
+    .carousel-item:hover .carousel-overlay {
+      opacity: 1;
+    }
+
+    /* ── Lightbox ───────────────────────────────────────────────── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 26, 26, 0.95);
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85%;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+      transform: scale(0.9);
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .lightbox.active img {
+      transform: scale(1);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      color: white;
+      font-size: 3rem;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    .lightbox-close:hover {
+      opacity: 1;
     }
   </style>
 </head>
@@ -1444,19 +1550,29 @@
         </div>
       </div>
 
-      <p class="section-label" style="margin:2.5rem 0 1rem;">La vida en Las Jaras hoy</p>
-      <div class="galeria-grid-fotos">
-        <div class="galeria-item">
-          <div class="galeria-foto-placeholder"><span class="icon">🌸</span><span>Usuarias en taller</span></div>
-        </div>
-        <div class="galeria-item">
-          <div class="galeria-foto-placeholder"><span class="icon">🏠</span><span>Espacio común</span></div>
-        </div>
-        <div class="galeria-item">
-          <div class="galeria-foto-placeholder"><span class="icon">🎨</span><span>Actividades</span></div>
-        </div>
-        <div class="galeria-item">
-          <div class="galeria-foto-placeholder"><span class="icon">🌿</span><span>Jardín / exterior</span></div>
+      <p class="section-label" style="margin:2.5rem 0 0.5rem;">La vida en Las Jaras hoy</p>
+      <div class="carousel-vida-container">
+        <div class="carousel-vida">
+          <div class="carousel-item" onclick="openLightbox('images/vida_1.jpg')">
+            <img src="images/vida_1.jpg" alt="Vida en Las Jaras 1">
+            <div class="carousel-overlay">🔍</div>
+          </div>
+          <div class="carousel-item" onclick="openLightbox('images/vida_2.jpg')">
+            <img src="images/vida_2.jpg" alt="Vida en Las Jaras 2">
+            <div class="carousel-overlay">🔍</div>
+          </div>
+          <div class="carousel-item" onclick="openLightbox('images/vida_3.jpg')">
+            <img src="images/vida_3.jpg" alt="Vida en Las Jaras 3">
+            <div class="carousel-overlay">🔍</div>
+          </div>
+          <div class="carousel-item" onclick="openLightbox('images/vida_4.jpg')">
+            <img src="images/vida_4.jpg" alt="Vida en Las Jaras 4">
+            <div class="carousel-overlay">🔍</div>
+          </div>
+          <div class="carousel-item" onclick="openLightbox('images/vida_5.jpg')">
+            <img src="images/vida_5.jpg" alt="Vida en Las Jaras 5">
+            <div class="carousel-overlay">🔍</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1704,7 +1820,33 @@
     }, spyOptions);
 
     pageSections.forEach(section => spyObserver.observe(section));
+
+    // Lightbox functions
+    function openLightbox(src) {
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightbox-img');
+      lbImg.src = src;
+      lb.style.display = 'flex';
+      setTimeout(() => lb.classList.add('active'), 10);
+      document.body.style.overflow = 'hidden'; 
+    }
+
+    function closeLightbox() {
+      const lb = document.getElementById('lightbox');
+      lb.classList.remove('active');
+      setTimeout(() => {
+        lb.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 400);
+    }
   </script>
+
+  <!-- LIGHTBOX STRUCTURE -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Zoom">
+  </div>
+
 </div>
 </body>
 </html>
