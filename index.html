@@ -37,13 +37,13 @@
       line-height: 1.7;
       transition: padding 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
-    .lj-reforma-wrapper a {
+    .lj-reforma-wrapper p a {
       color: var(--verde);
       text-decoration: underline;
       text-underline-offset: 3px;
       transition: color 0.3s ease;
     }
-    .lj-reforma-wrapper a:hover {
+    .lj-reforma-wrapper p a:hover {
       color: var(--teal);
     }
 
@@ -175,16 +175,17 @@
       letter-spacing: 0.02em;
     }
     .lj-reforma-wrapper a.lj-btn { text-decoration: none; }
-    .lj-btn-primary { background: var(--verde); color: var(--blanco) !important; }
+    .lj-btn-primary { background: var(--verde); color: var(--blanco) !important; text-decoration: none !important; }
     .lj-btn-primary:hover { background: var(--oscuro); }
-    .lj-btn-secondary { background: var(--ocre); color: var(--blanco) !important; }
+    .lj-btn-secondary { background: var(--ocre); color: var(--blanco) !important; text-decoration: none !important; }
     .lj-btn-secondary:hover { background: #b88b69; }
     .lj-btn-outline { 
       background: transparent; 
-      color: var(--gris-suave) !important; 
-      border: 2px solid var(--gris-suave); 
+      color: var(--blanco) !important; 
+      border: 2px solid var(--blanco); 
+      text-decoration: none !important;
     }
-    .lj-btn-outline:hover { background: var(--gris-suave); color: var(--oscuro) !important; }
+    .lj-btn-outline:hover { background: var(--blanco); color: var(--oscuro) !important; }
 
     /* ── Placeholder imágenes ──────────────────────────────────────── */
     .img-placeholder {
