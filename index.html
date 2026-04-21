@@ -1256,6 +1256,26 @@
     .lightbox-close:hover {
       opacity: 1;
     }
+
+    /* ── Video Responsivo ───────────────────────────────────────── */
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      margin-bottom: 3.5rem;
+      background: var(--gris);
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
   </style>
 </head>
 <body>
@@ -1574,6 +1594,10 @@
       <p class="section-label">Galería</p>
       <h2 class="section-title">Así será nuestro hogar</h2>
       <p style="max-width:580px; margin-bottom:2.5rem;">Un vistazo al proyecto arquitectónico y a la vida que ya existe en Las Jaras, para que puedas imaginar lo que construiremos juntos.</p>
+
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/S-8WSWi9HM4" title="Proyecto de Reforma Las Jaras" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
 
       <p class="section-label" style="margin-bottom:1rem;">Renders del proyecto</p>
       <div class="galeria-grid-renders">
