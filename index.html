@@ -1823,7 +1823,7 @@
       <h2 class="section-title">Cuando muchas personas se unen, el cambio empieza a ser real</h2>
       <p style="max-width:580px; margin-bottom:1rem;">Detrás de este proyecto hay personas que ya han dado el paso. Iniciativas que suman, que movilizan y que están haciendo posible el cambio:</p>
 
-      <div class="blog-grid">
+      <div class="blog-grid" id="blog-posts-grid">
         <!-- Post 1: Teatro -->
         <a href="https://www.lasjarasresidencia.com/gran-exito-del-teatro-solidario-de-grupo-surcos-y-las-jaras-en-majadahonda/" target="_blank" class="blog-card">
           <div class="blog-card-img">
@@ -1885,7 +1885,7 @@
         </a>
 
         <!-- Card 6: Placeholder -->
-        <div class="blog-card blog-card-placeholder">
+        <div class="blog-card blog-card-placeholder" id="blog-placeholder">
           <div class="icon">🎨</div>
           <h3>Próxima iniciativa</h3>
           <p>Inscríbete en nuestra newsletter para conocer las próximas acciones solidarias.</p>
@@ -2053,6 +2053,67 @@
         behavior: 'smooth'
       });
     }
+
+    // Cargar posts dinámicos de WordPress
+    async function loadBlogPosts() {
+      const grid = document.getElementById('blog-posts-grid');
+      const placeholder = document.getElementById('blog-placeholder');
+      if (!grid || !placeholder) return;
+
+      const tagId = 45; // "reforma"
+      const url = `https://www.lasjarasresidencia.com/wp-json/wp/v2/posts?tags=${tagId}&_embed&per_page=5`;
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('API Error');
+        const posts = await response.json();
+        
+        if (posts.length > 0) {
+          // Guardamos el HTML del placeholder
+          const placeholderHTML = placeholder.outerHTML;
+          grid.innerHTML = '';
+          
+          posts.forEach(post => {
+            const title = post.title.rendered;
+            const link = post.link;
+            const date = new Date(post.date);
+            const dateStr = date.toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' });
+            
+            // Limpiar excerpt de etiquetas HTML y acortar
+            let excerpt = post.excerpt.rendered.replace(/<[^>]*>?/gm, '');
+            if (excerpt.length > 130) excerpt = excerpt.substring(0, 130) + '...';
+            
+            let imgUrl = 'https://www.lasjarasresidencia.com/wp-content/uploads/2024/06/LasJaras-LogoA-Neutro.svg'; 
+            if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
+              imgUrl = post._embedded['wp:featuredmedia'][0].source_url;
+            }
+
+            const card = document.createElement('a');
+            card.href = link;
+            card.target = '_blank';
+            card.className = 'blog-card';
+            card.innerHTML = `
+              <div class="blog-card-img">
+                <img src="${imgUrl}" alt="${title}">
+              </div>
+              <div class="blog-card-content">
+                <h3>${title}</h3>
+                <p>${excerpt}</p>
+                <div class="blog-card-meta">📍 Las Jaras / ${dateStr}</div>
+              </div>
+            `;
+            grid.appendChild(card);
+          });
+          
+          // Siempre añadir el placeholder al final
+          grid.insertAdjacentHTML('beforeend', placeholderHTML);
+        }
+      } catch (error) {
+        console.warn('No se pudieron cargar los posts dinámicos, mostrando estáticos.', error);
+      }
+    }
+
+    loadBlogPosts();
   </script>
 
   <!-- LIGHTBOX STRUCTURE -->
