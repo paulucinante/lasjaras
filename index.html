@@ -642,6 +642,17 @@
       color: var(--verde);
     }
     .donante-chip .rol { font-size: 0.8rem; color: var(--neutro); }
+    .donante-logo {
+      height: 50px;
+      width: auto;
+      margin-bottom: 0.6rem;
+      object-fit: contain;
+      filter: grayscale(1) opacity(0.85);
+      transition: filter 0.3s, opacity 0.3s;
+    }
+    .donante-chip:hover .donante-logo {
+      filter: grayscale(0) opacity(1);
+    }
 
     .donante-placeholder {
       border: 2px dashed var(--menta);
@@ -1633,10 +1644,12 @@
         <h3>Nuestros aliados y donantes</h3>
         <div class="donantes-grid">
           <div class="donante-chip">
+            <img src="images/logo_nemesio.png" alt="Fundación Nemesio Díez" class="donante-logo">
             <span class="nombre">Fundación Nemesio Díez</span>
             <span class="rol">Donante principal</span>
           </div>
           <div class="donante-chip">
+            <img src="images/logo_caixabank.png" alt="CaixaBank" class="donante-logo">
             <span class="nombre">CaixaBank</span>
             <span class="rol">Colaborador financiero</span>
           </div>
