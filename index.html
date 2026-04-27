@@ -1038,6 +1038,91 @@
     }
     .lj-btn-menta:hover { background: #c4c9b0; }
 
+    /* ── Blog Cards ────────────────────────────────────────────── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, min-min(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    @media (min-width: 992px) {
+      .blog-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .blog-card {
+      background: var(--blanco);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
+    }
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .blog-card-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: var(--gris);
+    }
+    .blog-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .blog-card:hover .blog-card-img img {
+      transform: scale(1.05);
+    }
+    .blog-card-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card-content h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+      color: var(--oscuro);
+    }
+    .blog-card-content p {
+      font-size: 0.9rem;
+      color: var(--neutro);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .blog-card-meta {
+      font-size: 0.75rem;
+      color: var(--ocre);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .blog-card-placeholder {
+      background: var(--ocre-suave);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      border: 2px dashed var(--ocre);
+    }
+    .blog-card-placeholder .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
     .cta-strip {
       background: var(--ocre);
       border-radius: 14px;
@@ -1734,34 +1819,70 @@
       <h2 class="section-title">Cuando muchas personas se unen, el cambio empieza a ser real</h2>
       <p style="max-width:580px; margin-bottom:1rem;">Detrás de este proyecto hay personas que ya han dado el paso. Iniciativas que suman, que movilizan y que están haciendo posible el cambio:</p>
 
-      <div class="acciones-grid">
-        <div class="accion-card">
-          <span class="accion-icon">🎭</span>
-          <h3>Teatro solidario</h3>
-          <p>Función benéfica con entrada a precio libre a favor del proyecto de reforma de Las Jaras.</p>
-        </div>
-        <div class="accion-card">
-          <span class="accion-icon">✝️</span>
-          <h3>Las Tres Cruces</h3>
-          <p>Iniciativa solidaria vinculada a la tradición y la comunidad de Las Jaras.</p>
-        </div>
-        <div class="accion-card">
-          <span class="accion-icon">📖</span>
-          <h3>El Cuento Solidario</h3>
-          <p>Proyecto editorial con ilustraciones de las usuarias para recaudar fondos para la reforma.</p>
-        </div>
-        <div class="accion-card">
-          <span class="accion-icon">🎵</span>
-          <h3>Próxima iniciativa</h3>
-          <p>¿Quieres organizar tu propio evento? Contacta con nosotros y lo hacemos juntos.</p>
-        </div>
-        <div class="accion-card">
-          <span class="accion-icon">🏃</span>
-          <h3>Próxima iniciativa</h3>
-          <p>Cada evento suma. Toda la comunidad puede contribuir a este sueño colectivo.</p>
-        </div>
-        <div class="accion-card">
-          <span class="accion-icon">🎨</span>
+      <div class="blog-grid">
+        <!-- Post 1: Teatro -->
+        <a href="https://www.lasjarasresidencia.com/gran-exito-del-teatro-solidario-de-grupo-surcos-y-las-jaras-en-majadahonda/" target="_blank" class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://www.lasjarasresidencia.com/wp-content/uploads/2025/10/26-tetaro-solidario-scaled.jpeg" alt="Teatro Solidario">
+          </div>
+          <div class="blog-card-content">
+            <h3>Gran éxito del Teatro Solidario de Grupo Surcos y Las Jaras en Majadahonda</h3>
+            <p>Una tarde mágica de arte, solidaridad y comunidad en apoyo a la reforma de la Residencia Las Jaras.</p>
+            <div class="blog-card-meta">📍 Las Jaras / 20 oct 2025</div>
+          </div>
+        </a>
+
+        <!-- Post 2: Cruz de Mayo -->
+        <a href="https://www.lasjarasresidencia.com/celebracion-de-la-cruz-de-mayo-una-tradicion-familiar-que-apoya-a-las-jaras/" target="_blank" class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://www.lasjarasresidencia.com/wp-content/uploads/2025/05/cruz-mayo.jpg" alt="Cruz de Mayo">
+          </div>
+          <div class="blog-card-content">
+            <h3>Celebración de la Cruz de Mayo: Una Tradición Familiar que Apoya a Las Jaras</h3>
+            <p>Agradecemos profundamente a la familia de Gracia Mari Luque, residente de Las Jaras, por la maravillosa iniciativa en apoyo a Las Jaras que llevaron a cabo el pasado 10 de mayo.</p>
+            <div class="blog-card-meta">📍 Las Jaras / 20 may 2025</div>
+          </div>
+        </a>
+
+        <!-- Post 3: Cuento -->
+        <a href="https://www.lasjarasresidencia.com/en-el-dia-de-las-personas-con-discapacidad-presentamos-un-cuento-que-cambia-vidas/" target="_blank" class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://www.lasjarasresidencia.com/wp-content/uploads/2025/12/30-Una-Promesa-por-Cumplir.jpg" alt="Cuento Solidario">
+          </div>
+          <div class="blog-card-content">
+            <h3>En el Día de las personas con Discapacidad, presentamos un cuento que cambia vidas.</h3>
+            <p>En Las Jaras estamos viviendo un momento muy especial. Nace Una promesa por cumplir: Las Jaras, un cuento lleno de ternura y esperanza...</p>
+            <div class="blog-card-meta">📍 Las Jaras / 03 dic 2025</div>
+          </div>
+        </a>
+
+        <!-- Post 4: Lotería -->
+        <a href="https://www.lasjarasresidencia.com/las-jaras-juega-por-la-inclusion-con-sus-decimos-solidarios-de-navidad/" target="_blank" class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://www.lasjarasresidencia.com/wp-content/uploads/2025/11/loteria.jpg" alt="Lotería Navidad">
+          </div>
+          <div class="blog-card-content">
+            <h3>Las Jaras juega por la inclusión con sus décimos solidarios de Navidad</h3>
+            <p>Este año, Las Jaras juega por la inclusión. Desde nuestra asociación seguimos trabajando para hacer realidad la reforma integral de la residencia...</p>
+            <div class="blog-card-meta">📍 Las Jaras / 07 nov 2025</div>
+          </div>
+        </a>
+
+        <!-- Post 5: Verano -->
+        <a href="https://www.lasjarasresidencia.com/una-tarde-magica-en-las-jaras-para-dar-la-bienvenida-al-verano/" target="_blank" class="blog-card">
+          <div class="blog-card-img">
+            <img src="https://www.lasjarasresidencia.com/wp-content/uploads/2025/06/fiesta-verano.jpg" alt="Fiesta Verano">
+          </div>
+          <div class="blog-card-content">
+            <h3>Una tarde mágica en Las Jaras para dar la bienvenida al verano.</h3>
+            <p>El pasado 6 de junio vivimos una tarde mágica con nuestra esperada Fiesta de Verano, una cita que reunió en un ambiente alegre y festivo...</p>
+            <div class="blog-card-meta">📍 Las Jaras / 11 jun 2025</div>
+          </div>
+        </a>
+
+        <!-- Card 6: Placeholder -->
+        <div class="blog-card blog-card-placeholder">
+          <div class="icon">🎨</div>
           <h3>Próxima iniciativa</h3>
           <p>Inscríbete en nuestra newsletter para conocer las próximas acciones solidarias.</p>
         </div>
