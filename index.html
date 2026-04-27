@@ -653,6 +653,11 @@
     .donante-chip:hover .donante-logo {
       filter: grayscale(0) opacity(1);
     }
+    .donante-logo.no-filter,
+    .donante-chip:hover .donante-logo.no-filter {
+      filter: none !important;
+      opacity: 1 !important;
+    }
 
     .donante-placeholder {
       border: 2px dashed var(--menta);
@@ -1649,7 +1654,7 @@
             <span class="rol">Donante principal</span>
           </div>
           <div class="donante-chip">
-            <img src="images/logo_caixabank.png" alt="CaixaBank" class="donante-logo">
+            <img src="images/logo_caixabank.png" alt="CaixaBank" class="donante-logo no-filter">
             <span class="nombre">CaixaBank</span>
             <span class="rol">Colaborador financiero</span>
           </div>
