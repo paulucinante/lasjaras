@@ -366,7 +366,7 @@
 
     .razones-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 1.5rem;
       margin-top: 3rem;
     }
@@ -381,8 +381,9 @@
     .razon-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
     .razon-card:nth-child(2) { border-top-color: var(--teal); }
     .razon-card:nth-child(3) { border-top-color: var(--ocre); }
-    .razon-card:nth-child(4) { border-top-color: var(--menta); }
+    .razon-card:nth-child(4) { border-top-color: var(--menta); grid-column-start: 2; }
     .razon-card:nth-child(5) { border-top-color: var(--ocre); }
+    .razon-card { grid-column: span 2; }
 
     .razon-icon { font-size: 2rem; margin-bottom: 1rem; }
 
@@ -1213,8 +1214,11 @@
       .cta-inline { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
       .cta-inline .lj-btn-inline-group { justify-content: center; }
       .cta-strip { flex-direction: column; text-align: center; }
-      .proyecto-grid, .financiacion-section, .razones-grid,
+      .proyecto-grid, .financiacion-section,
       .acciones-grid, .colaborativo-grid { grid-template-columns: 1fr; }
+      .razones-grid { grid-template-columns: 1fr; }
+      .razon-card { grid-column: span 1; }
+      .razon-card:nth-child(4) { grid-column-start: auto; }
       .cifras-grid { grid-template-columns: repeat(3, 1fr); }
       .cifras-grid .cifra-card:nth-child(4),
       .cifras-grid .cifra-card:nth-child(5) { display: none; }
@@ -1531,7 +1535,7 @@
             <li>Proyectar hacia el futuro con los mismos valores</li>
           </ul>
         </div>
-        <div class="razon-card" style="grid-column: span 1;">
+        <div class="razon-card">
           <div class="razon-icon">📋</div>
           <h3>Cumplir hoy, cuidar mañana</h3>
           <p style="font-size: 0.9rem; margin-bottom: 1rem; opacity: 0.8;">La normativa ha cambiado, pero también la forma de entender los cuidados. Queremos un espacio preparado para el presente y para el futuro.</p>
