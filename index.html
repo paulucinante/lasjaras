@@ -393,7 +393,18 @@
     .razon-card:nth-child(4) { border-top-color: var(--menta); }
     .razon-card:nth-child(5) { border-top-color: var(--ocre); }
 
-    .razon-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .razon-icon { 
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background-color: var(--gris-suave);
+      color: var(--oscuro);
+      margin-bottom: 1.25rem; 
+    }
+    .razon-icon svg { width: 28px; height: 28px; stroke-width: 1.5; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
 
     .razon-card h3 {
       font-family: var(--font-title);
@@ -756,6 +767,18 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .colaborar-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    .colaborar-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--gris-suave);
+      color: var(--verde);
+      margin-bottom: 1rem;
+    }
+    .colaborar-icon svg { width: 24px; height: 24px; stroke-width: 1.5; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
     .colaborar-card h3 {
       font-family: var(--font-title);
       font-size: 1.05rem;
@@ -1503,7 +1526,7 @@
         <button class="carousel-nav prev" onclick="scrollCarousel('carouselRazones', -1)" aria-label="Anterior">❮</button>
         <div class="razones-grid" id="carouselRazones">
         <div class="razon-card">
-          <div class="razon-icon">♿</div>
+          <div class="razon-icon"><svg viewBox="0 0 24 24"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 3-2.36 3.5"/><path d="M4.24 14.5a5 5 0 0 0 6.88 6"/><path d="M13.76 17.5a5 5 0 0 0-6.88-6"/></svg></div>
           <h3>Accesibilidad y autonomía</h3>
           <p style="font-size: 0.9rem; margin-bottom: 1rem; opacity: 0.8;">Moverse con libertad dentro de tu propia casa no debería ser un reto.</p>
           <ul class="razon-list">
@@ -1513,7 +1536,7 @@
           </ul>
         </div>
         <div class="razon-card">
-          <div class="razon-icon">🤍</div>
+          <div class="razon-icon"><svg viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
           <h3>Envejecimiento digno</h3>
           <p style="font-size: 0.9rem; margin-bottom: 1rem; opacity: 0.8;">Muchas de las mujeres están envejeciendo y necesitan espacios que cuiden su salud y su bienestar.</p>
           <ul class="razon-list">
@@ -1523,7 +1546,7 @@
           </ul>
         </div>
         <div class="razon-card">
-          <div class="razon-icon">🌿</div>
+          <div class="razon-icon"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
           <h3>Eficiencia y confort</h3>
           <p style="font-size: 0.9rem; margin-bottom: 1rem; opacity: 0.8;">Un hogar también es temperatura, luz, silencio. Mejorar el edificio es también mejorar su día a día.</p>
           <ul class="razon-list">
@@ -1533,7 +1556,7 @@
           </ul>
         </div>
         <div class="razon-card">
-          <div class="razon-icon">🏡</div>
+          <div class="razon-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
           <h3>Preservar lo que realmente importa</h3>
           <p style="font-size: 0.9rem; margin-bottom: 1rem; opacity: 0.8;">Las Jaras es historia, comunidad y vínculo. Esta reforma no cambia su esencia: la protege.</p>
           <ul class="razon-list">
@@ -1543,7 +1566,7 @@
           </ul>
         </div>
         <div class="razon-card">
-          <div class="razon-icon">📋</div>
+          <div class="razon-icon"><svg viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></div>
           <h3>Cumplir hoy, cuidar mañana</h3>
           <p style="font-size: 0.9rem; margin-bottom: 1rem; opacity: 0.8;">La normativa ha cambiado, pero también la forma de entender los cuidados. Queremos un espacio preparado para el presente y para el futuro.</p>
           <ul class="razon-list">
@@ -1795,7 +1818,8 @@
 
       <div class="colaborar-grid">
         <div class="colaborar-card">
-          <h3>💰 Donaciones monetarias</h3>
+          <div class="colaborar-icon"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg></div>
+          <h3>Donaciones monetarias</h3>
           <ul>
             <li>Mejorar la eficiencia energética</li>
             <li>Adaptar un dormitorio</li>
@@ -1804,7 +1828,8 @@
           </ul>
         </div>
         <div class="colaborar-card">
-          <h3>🤝 Actividades de mecenazgo</h3>
+          <div class="colaborar-icon"><svg viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-7.38 7.38a6 6 0 1 0 8.49 8.49l.94-.94"/></svg></div>
+          <h3>Actividades de mecenazgo</h3>
           <ul>
             <li>Organizar un evento solidario</li>
             <li>Recaudar fondos con empleados y clientes</li>
@@ -1812,7 +1837,8 @@
           </ul>
         </div>
         <div class="colaborar-card">
-          <h3>🫶 Voluntariado corporativo</h3>
+          <div class="colaborar-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Voluntariado corporativo</h3>
           <ul>
             <li>Actividades de ocio compartido con las usuarias</li>
             <li>Visitas de sensibilización a tu organización</li>
@@ -1820,7 +1846,8 @@
           </ul>
         </div>
         <div class="colaborar-card">
-          <h3>🎁 Donaciones en especie</h3>
+          <div class="colaborar-icon"><svg viewBox="0 0 24 24"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
+          <h3>Donaciones en especie</h3>
           <ul>
             <li>Materiales de construcción o rehabilitación</li>
             <li>Equipamientos para los nuevos espacios</li>
@@ -2074,7 +2101,8 @@
     // Carousel navigation
     function scrollCarousel(id, direction) {
       const carousel = document.getElementById(id);
-      const itemWidth = carousel.querySelector('.carousel-item').offsetWidth;
+      if (!carousel || !carousel.firstElementChild) return;
+      const itemWidth = carousel.firstElementChild.offsetWidth;
       const gap = 24; // 1.5rem
       carousel.scrollBy({
         left: direction * (itemWidth + gap),
