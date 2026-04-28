@@ -774,23 +774,36 @@
 
     .colaborar-card {
       border-radius: 16px;
-      padding: 2rem;
       border: 1px solid var(--gris);
       transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
     .colaborar-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
-    .colaborar-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background-color: var(--gris-suave);
-      color: var(--verde);
-      margin-bottom: 1rem;
+
+    .colaborar-card-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: var(--gris);
     }
-    .colaborar-icon svg { width: 24px; height: 24px; stroke-width: 1.5; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+    .colaborar-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .colaborar-card:hover .colaborar-card-img img {
+      transform: scale(1.05);
+    }
+
+    .colaborar-card-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
     .colaborar-card h3 {
       font-family: var(--font-title);
       font-size: 1.05rem;
@@ -1873,41 +1886,60 @@
 
       <div class="colaborar-grid">
         <div class="colaborar-card">
-          <div class="colaborar-icon"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg></div>
-          <h3>Donaciones monetarias</h3>
-          <ul>
-            <li>Mejorar la eficiencia energética</li>
-            <li>Adaptar un dormitorio</li>
-            <li>Renovar los espacios de vida común</li>
-            <li>Las donaciones tienen ventajas fiscales</li>
-          </ul>
+          <div class="colaborar-card-img">
+            <img src="images/colaborar_monetaria.png" alt="Donaciones monetarias">
+          </div>
+          <div class="colaborar-card-content">
+            <h3>Donaciones monetarias</h3>
+            <ul>
+              <li>Mejorar la eficiencia energética</li>
+              <li>Adaptar un dormitorio</li>
+              <li>Renovar los espacios de vida común</li>
+              <li>Las donaciones tienen ventajas fiscales</li>
+            </ul>
+          </div>
         </div>
+
         <div class="colaborar-card">
-          <div class="colaborar-icon"><svg viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-7.38 7.38a6 6 0 1 0 8.49 8.49l.94-.94"/></svg></div>
-          <h3>Actividades de mecenazgo</h3>
-          <ul>
-            <li>Organizar un evento solidario</li>
-            <li>Recaudar fondos con empleados y clientes</li>
-            <li>Visibilizar tu compromiso con la inclusión</li>
-          </ul>
+          <div class="colaborar-card-img">
+            <img src="images/colaborar_mecenazgo.png" alt="Actividades de mecenazgo">
+          </div>
+          <div class="colaborar-card-content">
+            <h3>Actividades de mecenazgo</h3>
+            <ul>
+              <li>Organizar un evento solidario</li>
+              <li>Recaudar fondos con empleados y clientes</li>
+              <li>Visibilizar tu compromiso con la inclusión</li>
+            </ul>
+          </div>
         </div>
+
         <div class="colaborar-card">
-          <div class="colaborar-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3>Voluntariado corporativo</h3>
-          <ul>
-            <li>Actividades de ocio compartido con las usuarias</li>
-            <li>Visitas de sensibilización a tu organización</li>
-            <li>Grupos de trabajo y mantenimiento</li>
-          </ul>
+          <div class="colaborar-card-img">
+            <img src="images/colaborar_voluntariado.png" alt="Voluntariado corporativo">
+          </div>
+          <div class="colaborar-card-content">
+            <h3>Voluntariado corporativo</h3>
+            <ul>
+              <li>Actividades de ocio compartido con las usuarias</li>
+              <li>Visitas de sensibilización a tu organización</li>
+              <li>Grupos de trabajo y mantenimiento</li>
+            </ul>
+          </div>
         </div>
+
         <div class="colaborar-card">
-          <div class="colaborar-icon"><svg viewBox="0 0 24 24"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
-          <h3>Donaciones en especie</h3>
-          <ul>
-            <li>Materiales de construcción o rehabilitación</li>
-            <li>Equipamientos para los nuevos espacios</li>
-            <li>Servicios profesionales (arquitectura, comunicación...)</li>
-          </ul>
+          <div class="colaborar-card-img">
+            <img src="images/colaborar_especie.png" alt="Donaciones en especie">
+          </div>
+          <div class="colaborar-card-content">
+            <h3>Donaciones en especie</h3>
+            <ul>
+              <li>Materiales de construcción o rehabilitación</li>
+              <li>Equipamientos para los nuevos espacios</li>
+              <li>Servicios profesionales (arquitectura, comunicación...)</li>
+            </ul>
+          </div>
         </div>
       </div>
 
