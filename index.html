@@ -1460,20 +1460,11 @@
       object-fit: cover;
     }
 
-    /* ── Carrusel Renders Grande ────────────────────────────────── */
+    /* ── Carrusel Renders Grande (Slides de pantalla completa de contenedor) ── */
     #carouselRenders .carousel-item {
-      flex: 0 0 580px;
+      flex: 0 0 100%;
       aspect-ratio: 16/9;
-    }
-    @media (max-width: 900px) {
-      #carouselRenders .carousel-item {
-        flex: 0 0 440px;
-      }
-    }
-    @media (max-width: 600px) {
-      #carouselRenders .carousel-item {
-        flex: 0 0 85vw;
-      }
+      max-height: 550px;
     }
   </style>
 </head>
