@@ -1459,6 +1459,22 @@
       border: 0;
       object-fit: cover;
     }
+
+    /* ── Carrusel Renders Grande ────────────────────────────────── */
+    #carouselRenders .carousel-item {
+      flex: 0 0 580px;
+      aspect-ratio: 16/9;
+    }
+    @media (max-width: 900px) {
+      #carouselRenders .carousel-item {
+        flex: 0 0 440px;
+      }
+    }
+    @media (max-width: 600px) {
+      #carouselRenders .carousel-item {
+        flex: 0 0 85vw;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1811,25 +1827,44 @@
         <iframe src="https://www.youtube-nocookie.com/embed/S-8WSWi9HM4" title="Proyecto de Reforma Las Jaras" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
 
-      <p class="section-label" style="margin-bottom:1rem;">Renders del proyecto</p>
+      <p class="section-label" style="margin-bottom:1rem;">La primera fase</p>
       <div class="carousel-vida-container">
         <button class="carousel-nav prev" onclick="scrollCarousel('carouselRenders', -1)" aria-label="Anterior">❮</button>
         <div class="carousel-vida" id="carouselRenders">
-          <div class="carousel-item" onclick="openLightbox('images/render_1.jpg')">
-            <img src="images/render_1.jpg" alt="Render Proyecto 1">
+          <div class="carousel-item" onclick="openLightbox('images/fase1_1_alcance.jpg')">
+            <img src="images/fase1_1_alcance.jpg" alt="El Alcance">
             <div class="carousel-overlay">🔍</div>
           </div>
-          <div class="carousel-item" onclick="openLightbox('images/render_2.jpg')">
-            <img src="images/render_2.jpg" alt="Render Proyecto 2">
+          <div class="carousel-item" onclick="openLightbox('images/fase1_2_entrada.jpg')">
+            <img src="images/fase1_2_entrada.jpg" alt="Entrada">
             <div class="carousel-overlay">🔍</div>
           </div>
-
-          <div class="carousel-item" onclick="openLightbox('images/render_4.jpg')">
-            <img src="images/render_4.jpg" alt="Render Proyecto 4">
+          <div class="carousel-item" onclick="openLightbox('images/fase1_3_comedor.jpg')">
+            <img src="images/fase1_3_comedor.jpg" alt="Comedor">
             <div class="carousel-overlay">🔍</div>
           </div>
-          <div class="carousel-item" onclick="openLightbox('images/render_5.jpg')">
-            <img src="images/render_5.jpg" alt="Render Proyecto 5">
+          <div class="carousel-item" onclick="openLightbox('images/fase1_4_cocina.jpg')">
+            <img src="images/fase1_4_cocina.jpg" alt="Cocina">
+            <div class="carousel-overlay">🔍</div>
+          </div>
+          <div class="carousel-item" onclick="openLightbox('images/fase1_5_sala.jpg')">
+            <img src="images/fase1_5_sala.jpg" alt="Sala de estar">
+            <div class="carousel-overlay">🔍</div>
+          </div>
+          <div class="carousel-item" onclick="openLightbox('images/fase1_6_habitacion.jpg')">
+            <img src="images/fase1_6_habitacion.jpg" alt="Habitación">
+            <div class="carousel-overlay">🔍</div>
+          </div>
+          <div class="carousel-item" onclick="openLightbox('images/fase1_7_bano.jpg')">
+            <img src="images/fase1_7_bano.jpg" alt="Baño">
+            <div class="carousel-overlay">🔍</div>
+          </div>
+          <div class="carousel-item" onclick="openLightbox('images/fase1_8_lavanderia.jpg')">
+            <img src="images/fase1_8_lavanderia.jpg" alt="Lavandería">
+            <div class="carousel-overlay">🔍</div>
+          </div>
+          <div class="carousel-item" onclick="openLightbox('images/fase1_9_capilla.jpg')">
+            <img src="images/fase1_9_capilla.jpg" alt="Capilla">
             <div class="carousel-overlay">🔍</div>
           </div>
         </div>
