@@ -1449,13 +1449,15 @@
       margin-bottom: 3.5rem;
       background: var(--gris);
     }
-    .video-wrapper iframe {
+    .video-wrapper iframe,
+    .video-wrapper video {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       border: 0;
+      object-fit: cover;
     }
   </style>
 </head>
@@ -1769,6 +1771,13 @@
             <span>+ Próximo colaborador</span>
           </div>
         </div>
+
+        <div class="video-wrapper" style="margin-top: 3rem; margin-bottom: 0;">
+          <video controls playsinline preload="metadata">
+            <source src="https://www.lasjarasresidencia.com/wp-content/uploads/2026/06/Video-Impacto-Nemesio-05-06-26.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de este video.
+          </video>
+        </div>
       </div>
     </div>
   </section>
@@ -1799,7 +1808,7 @@
       <p style="margin-bottom:2.5rem;">Un vistazo al proyecto arquitectónico y a la vida que ya existe en Las Jaras, para que puedas imaginar lo que construiremos juntos.</p>
 
       <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/S-8WSWi9HM4" title="Proyecto de Reforma Las Jaras" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="https://www.youtube-nocookie.com/embed/S-8WSWi9HM4" title="Proyecto de Reforma Las Jaras" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
 
       <p class="section-label" style="margin-bottom:1rem;">Renders del proyecto</p>
