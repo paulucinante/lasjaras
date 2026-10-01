@@ -125,6 +125,131 @@
       box-shadow: 0 15px 40px rgba(46, 59, 39, 0.3);
     }
 
+    /* ── Mobile Header & Drawer ───────────────────────────────────── */
+    .mobile-header {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 600;
+      padding: 0 1.25rem;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+    .mobile-logo {
+      font-family: var(--font-title);
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--verde);
+      text-decoration: none;
+      line-height: 1.15;
+    }
+    .mobile-logo span {
+      display: block;
+      font-size: 0.65rem;
+      color: var(--neutro);
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .mobile-menu-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      z-index: 601;
+    }
+    .mobile-menu-btn span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--oscuro);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .mobile-menu-btn.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .mobile-menu-btn.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-btn.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 26, 26, 0.4);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 550;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-nav-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 60px;
+      right: 0;
+      width: 280px;
+      max-width: 85vw;
+      bottom: 0;
+      background: var(--blanco);
+      z-index: 590;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+      overflow-y: auto;
+    }
+    .mobile-drawer.open {
+      transform: translateX(0);
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .mobile-nav-links a {
+      text-decoration: none;
+      font-family: var(--font-title);
+      font-size: 0.95rem;
+      color: var(--neutro);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: block;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--gris);
+      transition: color 0.2s ease;
+    }
+    .mobile-nav-links a:hover, .mobile-nav-links a.active {
+      color: var(--verde);
+      font-weight: 600;
+    }
+
     /* ── Secciones generales ───────────────────────────────────────── */
     .lj-reforma-wrapper section { padding: 6rem 0; }
 
@@ -1264,14 +1389,91 @@
       .nav-links { flex-direction: column; gap: 1.5rem; }
     }
 
+    @media (max-width: 900px) {
+      #lj-nav { display: none !important; }
+      .mobile-header { display: flex; }
+      #hero { padding-top: 60px; }
+      
+      .lj-reforma-wrapper section { padding: 3.5rem 0; }
+      .lj-container { padding: 0 1.25rem; }
+
+      .hero-content {
+        margin: 1rem;
+        padding: 2.5rem 1.25rem;
+        border-radius: 28px;
+      }
+      .hero-eyebrow {
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        margin-bottom: 1rem;
+      }
+      .hero-title {
+        font-size: clamp(1.8rem, 6.5vw, 2.6rem);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+      .hero-subtitle {
+        font-size: 1.02rem;
+        margin-bottom: 1.8rem;
+        line-height: 1.6;
+      }
+      .hero-btns {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .hero-btns .lj-btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.85rem 1.5rem;
+      }
+      .hero-tag {
+        margin-top: 1.8rem;
+        font-size: 0.72rem;
+      }
+
+      .fab {
+        bottom: 1.2rem;
+        right: 1rem;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.82rem;
+        box-shadow: 0 6px 20px rgba(79,110,68,0.5);
+      }
+      .cta-inline { flex-direction: column; text-align: center; padding: 2rem 1.25rem; }
+      .cta-inline .lj-btn-inline-group { justify-content: center; width: 100%; }
+      .cta-inline .lj-btn-inline-group a { flex: 1; text-align: center; }
+      .cta-strip { flex-direction: column; text-align: center; gap: 1rem; padding: 1.25rem 1.5rem; }
+      
+      .proyecto-grid, .financiacion-section,
+      .acciones-grid, .colaborativo-grid { grid-template-columns: 1fr; gap: 2rem; }
+      
+      /* Cifras: Mostrar TODAS las 5 tarjetas en 2 columnas (la 5ª span 2) */
+      .cifras-grid { grid-template-columns: repeat(2, 1fr); border-radius: 20px; }
+      .cifras-grid .cifra-card:nth-child(4),
+      .cifras-grid .cifra-card:nth-child(5) { display: block !important; }
+      .cifras-grid .cifra-card:nth-child(5) { grid-column: span 2; }
+      .cifra-card { padding: 1.4rem 0.75rem; }
+      .cifra-num { font-size: 2rem; }
+      .cifra-label { font-size: 0.78rem; }
+
+      .galeria-grid-renders { grid-template-columns: 1fr; }
+      .galeria-grid-fotos { grid-template-columns: repeat(2, 1fr); }
+      .carousel-item { flex: 0 0 82vw; max-width: 320px; }
+      .trust-row { flex-direction: column; gap: 1.25rem; }
+      .fiscal-banner { padding: 1.5rem; }
+    }
+
     @media (max-width: 768px) {
+      h2.section-title { font-size: 1.75rem; line-height: 1.25; margin-bottom: 1rem; }
+      h3.subsection-title { font-size: 1.1rem; }
+      
       .fases-container-layout { flex-direction: column; }
       .fases-transversal {
         width: 100%;
         flex-direction: row;
         height: auto;
-        padding: 1.2rem;
+        padding: 1rem 1.25rem;
         gap: 1.5rem;
+        justify-content: center;
       }
       .transversal-label {
         writing-mode: horizontal-tb;
@@ -1280,27 +1482,37 @@
       }
       .transversal-sep { width: 1px; height: 15px; }
       
-      .fase-row { grid-template-columns: 100px 1fr; }
-      .fase-year .year-num { font-size: 1.2rem; }
+      .fase-row { grid-template-columns: 1fr; }
+      .fase-year {
+        padding: 0.8rem 1.25rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+      }
+      .fase-year .year-num { font-size: 1.1rem; text-align: left; }
       .fase-content { padding: 1.25rem; }
-    }
 
-    @media (max-width: 900px) {
-      #lj-nav { display: none !important; }
-      .hero-content { margin-top: 0; }
-      .fab { bottom: 1.2rem; right: 1.2rem; padding: 0.8rem 1.2rem; font-size: 0.82rem; }
-      .cta-inline { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
-      .cta-inline .lj-btn-inline-group { justify-content: center; }
-      .cta-strip { flex-direction: column; text-align: center; }
-      .proyecto-grid, .financiacion-section,
-      .acciones-grid, .colaborativo-grid { grid-template-columns: 1fr; }
-      .cifras-grid { grid-template-columns: repeat(3, 1fr); }
-      .cifras-grid .cifra-card:nth-child(4),
-      .cifras-grid .cifra-card:nth-child(5) { display: none; }
-      .galeria-grid-renders { grid-template-columns: 1fr 1fr; }
-      .galeria-grid-fotos { grid-template-columns: 1fr 1fr; }
-      .carousel-item { flex: 0 0 280px; }
-      .trust-row { flex-direction: column; }
+      .desglose-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+      .desglose-item { padding: 1rem 0.5rem; transform: none !important; }
+      .desglose-pct { font-size: 1.5rem; }
+      .desglose-label { font-size: 0.78rem; }
+
+      .contacto-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .contacto-card { padding: 1.25rem; word-break: break-word; }
+
+      .donantes-grid { gap: 0.75rem; justify-content: center; }
+      .donante-chip { padding: 0.75rem 1rem; flex: 1 1 calc(50% - 0.75rem); min-width: 120px; }
+      .donante-logo { max-height: 45px !important; height: auto !important; max-width: 100%; }
+      .donante-placeholder { padding: 0.75rem 1rem; flex: 1 1 100%; }
+      
+      .sello-confianza { flex-direction: column; text-align: center; padding: 1.5rem; gap: 1rem; }
+      .sello-lealtad-img { width: 110px; }
+
+      .colaborar-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+      
+      .btns-cierre { flex-direction: column; align-items: center; }
+      .btns-cierre a { width: 100%; max-width: 320px; min-width: 0 !important; text-align: center; }
     }
 
     /* ── Carousel Vida en las Jaras ──────────────────────────────── */
@@ -1472,6 +1684,32 @@
 <body>
 <div class="lj-reforma-wrapper">
 
+  <!-- CABECERA MÓVIL -->
+  <header class="mobile-header">
+    <a href="#" class="mobile-logo">Las Jaras <span>Proyecto Reforma</span></a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú de navegación">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- OVERLAY Y MENÚ DESPLEGABLE MÓVIL -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <ul class="mobile-nav-links">
+      <li><a href="#proyecto" class="mobile-link">El proyecto</a></li>
+      <li><a href="#razones" class="mobile-link">Por qué</a></li>
+      <li><a href="#fases" class="mobile-link">Fases</a></li>
+      <li><a href="#galeria" class="mobile-link">Galería</a></li>
+      <li><a href="#colaborar" class="mobile-link">Colaborar</a></li>
+      <li><a href="#acciones" class="mobile-link">Iniciativas</a></li>
+    </ul>
+    <div style="margin-top: 2rem;">
+      <a href="#cierre" class="lj-btn lj-btn-primary mobile-link" style="width: 100%; text-align: center; display: block; font-size: 0.88rem; text-decoration: none;">Quiero colaborar</a>
+    </div>
+  </aside>
+
   <!-- BOTÓN FLOTANTE -->
   <a href="#cierre" class="fab">
     <span class="fab-icon">💚</span>
@@ -1526,7 +1764,7 @@
           <p>Pero el edificio que las acoge ya no responde a lo que ellas necesitan hoy, ni a lo que necesitarán mañana. Por eso hemos diseñado un proyecto de reforma integral: un nuevo modelo de hogar pensado para garantizar su autonomía, su intimidad y su bienestar en cada etapa de la vida.</p>
         </div>
         <div>
-          <div class="carousel-item" style="height: 360px; border-radius:20px; flex: none; width: 100%; cursor: zoom-in;" onclick="openLightbox('images/grupo.jpg')">
+          <div class="carousel-item" style="aspect-ratio: 16/10; height: auto; max-height: 360px; border-radius:20px; flex: none; width: 100%; cursor: zoom-in;" onclick="openLightbox('images/grupo.jpg')">
             <img src="images/grupo.jpg" alt="Foto grupal de las 48 usuarias" style="height: 100%; width: 100%; object-fit: cover;">
             <div class="carousel-overlay">🔍</div>
           </div>
@@ -1774,7 +2012,7 @@
             <img src="images/logo_caixabank.jpg" alt="Fundación la Caixa" class="donante-logo no-filter">
           </div>
           <div class="donante-chip">
-            <img src="images/logo_madrid.png" alt="Subvención IRPF 0,7 Comunidad de Madrid" class="donante-logo no-filter" style="height: 100px;">
+            <img src="images/logo_madrid.png" alt="Subvención IRPF 0,7 Comunidad de Madrid" class="donante-logo no-filter" style="max-height: 60px; height: auto;">
           </div>
           <div class="donante-placeholder">
             <span>+ Próximo colaborador</span>
@@ -2175,8 +2413,8 @@
       revealObserver.observe(card);
     });
 
-    // Scroll Spy for Nav tracking
-    const navLinksList = document.querySelectorAll('.nav-links a');
+    // Scroll Spy for Nav tracking (desktop & mobile)
+    const navLinksList = document.querySelectorAll('.nav-links a, .mobile-nav-links a');
     const pageSections = document.querySelectorAll('section');
 
     const spyOptions = {
@@ -2200,6 +2438,47 @@
     }, spyOptions);
 
     pageSections.forEach(section => spyObserver.observe(section));
+
+    // Lógica del menú móvil (Drawer)
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function toggleMobileMenu() {
+      if (!mobileDrawer) return;
+      const isOpen = mobileDrawer.classList.contains('open');
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    }
+
+    function openMobileMenu() {
+      if (!mobileDrawer) return;
+      mobileMenuBtn.classList.add('open');
+      mobileDrawer.classList.add('open');
+      mobileNavOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+      if (!mobileDrawer) return;
+      mobileMenuBtn.classList.remove('open');
+      mobileDrawer.classList.remove('open');
+      mobileNavOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+      mobileNavOverlay.addEventListener('click', closeMobileMenu);
+      mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMobileMenu();
+      });
+    }
 
     // Lightbox functions
     function openLightbox(src) {
